@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwsj0hitwxlba"]
 
-[ext_resource type="Script" uid="uid://bwwbj2fpn3vae" path="res://party.gd" id="1_4fixh"]
+[ext_resource type="Script" uid="uid://bwwbj2fpn3vae" path="res://Scenes/scripts/party.gd" id="1_os21g"]
 
 [node name="Party" type="Node2D"]
-script = ExtResource("1_4fixh")
+script = ExtResource("1_os21g")
 
 [node name="Return" type="Button" parent="."]
 anchors_preset = 8

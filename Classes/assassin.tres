@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://b2ln153ehxgum"]
+
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/assests/stat.gd" id="1_t4dwh"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/assests/statF.gd" id="2_esniq"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/assests/starting_stats.gd" id="3_8uqvv"]
+
+[sub_resource type="Resource" id="Resource_gxabj"]
+script = ExtResource("1_t4dwh")
+cap = 85
+current = 85
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_wggql"]
+script = ExtResource("1_t4dwh")
+cap = 20
+current = 20
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_f11fr"]
+script = ExtResource("1_t4dwh")
+cap = 0
+current = 0
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_hyx6p"]
+script = ExtResource("2_esniq")
+cap = 1.6
+current = 1.6
+metadata/_custom_type_script = "uid://cfsam6xb235qy"
+
+[sub_resource type="Resource" id="Resource_v63gg"]
+script = ExtResource("1_t4dwh")
+cap = 380
+current = 380
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_jgiue"]
+script = ExtResource("1_t4dwh")
+cap = 10
+current = 10
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_hcn8y"]
+script = ExtResource("1_t4dwh")
+cap = 9
+current = 9
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_7s2hm"]
+script = ExtResource("1_t4dwh")
+cap = 18
+current = 18
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_jq62f"]
+script = ExtResource("1_t4dwh")
+cap = 11
+current = 11
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_y2lvc"]
+script = ExtResource("1_t4dwh")
+cap = 80
+current = 80
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_swm8g"]
+script = ExtResource("1_t4dwh")
+cap = 8
+current = 8
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[resource]
+script = ExtResource("3_8uqvv")
+class_type = "Assassin"
+hp = SubResource("Resource_v63gg")
+pp = SubResource("Resource_7s2hm")
+mp = SubResource("Resource_jgiue")
+ag = SubResource("Resource_wggql")
+wp = SubResource("Resource_swm8g")
+pr = SubResource("Resource_jq62f")
+mr = SubResource("Resource_hcn8y")
+resource = SubResource("Resource_y2lvc")
+accuracy = SubResource("Resource_gxabj")
+crit_chance = SubResource("Resource_f11fr")
+crit_dmg = SubResource("Resource_hyx6p")
+metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
