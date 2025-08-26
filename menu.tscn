@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://drmih7agn0xtg"]
+
+[ext_resource type="Script" uid="uid://dph20j5a4cney" path="res://menu.gd" id="1_lti8b"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_lti8b")
+
+[node name="BattleButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 577.0
+offset_top = 278.0
+offset_right = 777.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Battle"
+
+[node name="ShopButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 577.0
+offset_top = 390.0
+offset_right = 777.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Shop"
+
+[node name="PartyButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 577.0
+offset_top = 505.0
+offset_right = 777.0
+offset_bottom = 605.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Party"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 577.0
+offset_top = 615.0
+offset_right = 777.0
+offset_bottom = 715.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="BattleButton" to="." method="_on_battle_button_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="PartyButton" to="." method="_on_party_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
