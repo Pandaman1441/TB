@@ -1,1 +1,4 @@
-extends Node
+extends "res://Classes/Archetypes/archetype.gd"
+
+
+	
