@@ -1,78 +1,78 @@
-[gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://d32162kt7u2lw"]
+[gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://cjj7430es3uvo"]
 
-[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/assests/stat.gd" id="1_dgtg6"]
-[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/assests/statF.gd" id="2_vw62h"]
-[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/assests/starting_stats.gd" id="3_18r2e"]
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Assets/stat.gd" id="1_sqgff"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Assets/statF.gd" id="2_6i0ok"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Stats/starting_stats.gd" id="3_erc6c"]
 
 [sub_resource type="Resource" id="Resource_4e1o1"]
-script = ExtResource("1_dgtg6")
+script = ExtResource("1_sqgff")
 cap = 80
 current = 80
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_kc0lp"]
-script = ExtResource("1_dgtg6")
-cap = 17
-current = 17
+script = ExtResource("1_sqgff")
+cap = 5
+current = 5
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_qqwft"]
-script = ExtResource("1_dgtg6")
+script = ExtResource("1_sqgff")
 cap = 0
 current = 0
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_fr3ad"]
-script = ExtResource("2_vw62h")
+script = ExtResource("2_6i0ok")
 cap = 1.5
 current = 1.5
 metadata/_custom_type_script = "uid://cfsam6xb235qy"
 
 [sub_resource type="Resource" id="Resource_nraaf"]
-script = ExtResource("1_dgtg6")
-cap = 400
-current = 400
+script = ExtResource("1_sqgff")
+cap = 360
+current = 360
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_lc3tg"]
-script = ExtResource("1_dgtg6")
-cap = 5
-current = 5
+script = ExtResource("1_sqgff")
+cap = 25
+current = 25
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_tnx7m"]
-script = ExtResource("1_dgtg6")
+script = ExtResource("1_sqgff")
 cap = 8
 current = 8
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_13bw7"]
-script = ExtResource("1_dgtg6")
-cap = 22
-current = 22
+script = ExtResource("1_sqgff")
+cap = 10
+current = 10
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_tny3v"]
-script = ExtResource("1_dgtg6")
+script = ExtResource("1_sqgff")
 cap = 8
 current = 8
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_yv4b7"]
-script = ExtResource("1_dgtg6")
-cap = 100
-current = 100
+script = ExtResource("1_sqgff")
+cap = 150
+current = 150
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_v7kdq"]
-script = ExtResource("1_dgtg6")
-cap = 17
-current = 17
+script = ExtResource("1_sqgff")
+cap = 10
+current = 10
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [resource]
-script = ExtResource("3_18r2e")
-class_type = "Monk"
+script = ExtResource("3_erc6c")
+class_type = "Scholar"
 hp = SubResource("Resource_nraaf")
 pp = SubResource("Resource_13bw7")
 mp = SubResource("Resource_lc3tg")

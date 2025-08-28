@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://us1v05t3l5yn"]
+
+[ext_resource type="Script" uid="uid://clbohfi1y88k8" path="res://Classes/Archetypes/archetype.gd" id="1_ry0g0"]
+
+[node name="Archetype" type="Node2D"]
+script = ExtResource("1_ry0g0")
+base_skills = null

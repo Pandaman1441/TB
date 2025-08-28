@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cnqjjt7s3wlv"]
+
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/starting_skills.gd" id="1_pud3b"]
+
+[resource]
+script = ExtResource("1_pud3b")
+skill_name = "Slash"
+skill_description = "Strike your target"
+mana_cost = 10
+base_damage = 10
+metadata/_custom_type_script = "uid://cfha302j5xcmi"
