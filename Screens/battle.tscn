@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bghlrpjvuo2ee"]
+[gd_scene load_steps=2 format=3 uid="uid://dclwxggw4286d"]
 
-[ext_resource type="Script" uid="uid://chait7rhx5yjv" path="res://Scenes/scripts/shop.gd" id="1_a0mxf"]
+[ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
 
-[node name="Shop" type="Node2D"]
-script = ExtResource("1_a0mxf")
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_w7k78")
 
 [node name="Return" type="Button" parent="."]
 anchors_preset = 8

@@ -1,7 +1,9 @@
 extends Archetype
 
 
-class_name Art
+class_name Artificer
+# these are for class specific methods or overrides
+# most of the functionality should be from the base archetype file
 
 
 func _ready() -> void:
