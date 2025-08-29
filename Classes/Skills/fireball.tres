@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=4 format=3 uid="uid://cccigo8h1l118"]
+
+[ext_resource type="Script" uid="uid://c1rh8pbmlxdsp" path="res://Classes/Skills/Scripts/fireball.gd" id="1_18klj"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_ck4kc"]
+
+[sub_resource type="Resource" id="Resource_l3kii"]
+script = ExtResource("1_18klj")
+damage = 10
+range = 0
+radius = 0
+target_type = ""
+position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://c1rh8pbmlxdsp"
+
+[resource]
+script = ExtResource("1_ck4kc")
+skill_name = "Fireball"
+skill_description = "ball of fire"
+mana_cost = 10
+effect = SubResource("Resource_l3kii")
+metadata/_custom_type_script = "uid://cfha302j5xcmi"

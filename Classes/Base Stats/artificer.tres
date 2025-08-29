@@ -72,7 +72,7 @@ metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [resource]
 script = ExtResource("3_05rrb")
-class_type = "Class type"
+class_type = "Artificer"
 hp = SubResource("Resource_fceia")
 pp = SubResource("Resource_688l2")
 mp = SubResource("Resource_a1ysa")

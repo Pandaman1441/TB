@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rvf0hi0fil75"]
 
-[ext_resource type="Script" uid="uid://bmbcbxtaedqss" path="res://turn_queue.gd" id="1_kgg5g"]
+[ext_resource type="Script" uid="uid://d300n2bjnqmkc" path="res://Classes/Actors/actor.gd" id="1_kgg5g"]
 [ext_resource type="Texture2D" uid="uid://bqaweusb5e82g" path="res://icon.svg" id="2_00arq"]
 
 [node name="TurnQueue" type="Node2D"]

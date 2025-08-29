@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=7 format=3 uid="uid://dqdf2r352oopj"]
+
+[ext_resource type="Script" uid="uid://dfbsh8stsaxyw" path="res://Classes/Archetypes/art.gd" id="1_lg6ap"]
+[ext_resource type="Script" uid="uid://d300n2bjnqmkc" path="res://Classes/Actors/actor.gd" id="1_o60sb"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="2_12sa0"]
+[ext_resource type="Resource" uid="uid://cccigo8h1l118" path="res://Classes/Skills/fireball.tres" id="3_sd6qs"]
+[ext_resource type="Resource" uid="uid://ddx3ggd6yf223" path="res://Classes/Base Stats/artificer.tres" id="4_h82ev"]
+
+[sub_resource type="Resource" id="Resource_27tsb"]
+script = ExtResource("1_lg6ap")
+stats = ExtResource("4_h82ev")
+skills_defs = Array[ExtResource("2_12sa0")]([ExtResource("3_sd6qs")])
+metadata/_custom_type_script = "uid://dfbsh8stsaxyw"
+
+[resource]
+script = ExtResource("1_o60sb")
+display_name = "Verity"
+team = "ally"
+job = SubResource("Resource_27tsb")
+metadata/_custom_type_script = "uid://d300n2bjnqmkc"
