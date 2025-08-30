@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dclwxggw4286d"]
+[gd_scene load_steps=7 format=3 uid="uid://dclwxggw4286d"]
 
 [ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://3j7gc7v7mu78" path="res://Screens/grid.gd" id="2_i4bo0"]
+[ext_resource type="Script" uid="uid://bmbcbxtaedqss" path="res://Combat/turn_queue.gd" id="3_dphil"]
+[ext_resource type="PackedScene" uid="uid://dx02jry4qf6y7" path="res://Classes/Actors/Enemies/goblin.tscn" id="4_4myx4"]
+[ext_resource type="PackedScene" uid="uid://d05a82gggsiat" path="res://Classes/Actors/Allies/artificer.tscn" id="5_lvpb0"]
 
 [sub_resource type="TileSet" id="TileSet_owjfn"]
 
@@ -14,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 278.0
-offset_right = 777.0
-offset_bottom = 378.0
+offset_left = 1212.0
+offset_top = 18.0
+offset_right = 1412.0
+offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return"
@@ -26,5 +29,26 @@ text = "Return"
 tile_set = SubResource("TileSet_owjfn")
 format = 2
 script = ExtResource("2_i4bo0")
+
+[node name="TurnQueue" type="Node2D" parent="."]
+script = ExtResource("3_dphil")
+metadata/_custom_type_script = "uid://bmbcbxtaedqss"
+
+[node name="goblin" parent="TurnQueue" instance=ExtResource("4_4myx4")]
+
+[node name="goblin2" parent="TurnQueue" instance=ExtResource("4_4myx4")]
+
+[node name="artificer" parent="TurnQueue" instance=ExtResource("5_lvpb0")]
+skills_defs = null
+team = null
+inititive = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer"]
+offset_left = 731.0
+offset_top = 552.0
+offset_right = 771.0
+offset_bottom = 592.0
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

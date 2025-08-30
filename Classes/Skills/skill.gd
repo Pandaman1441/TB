@@ -8,3 +8,4 @@ class_name Skill
 
 @export var mana_cost : int
 @export var effect : Action
+@export var cooldown : int

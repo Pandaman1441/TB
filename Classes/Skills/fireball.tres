@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://c1rh8pbmlxdsp" path="res://Classes/Skills/Scripts/fireball.gd" id="1_18klj"]
 [ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_ck4kc"]
 
-[sub_resource type="Resource" id="Resource_l3kii"]
+[sub_resource type="Resource" id="Resource_18klj"]
 script = ExtResource("1_18klj")
-damage = 10
+base_damage = 10
 range = 0
 radius = 0
 target_type = ""
 position = Vector2(0, 0)
+ap = 0
 metadata/_custom_type_script = "uid://c1rh8pbmlxdsp"
 
 [resource]
@@ -17,5 +18,6 @@ script = ExtResource("1_ck4kc")
 skill_name = "Fireball"
 skill_description = "ball of fire"
 mana_cost = 10
-effect = SubResource("Resource_l3kii")
+effect = SubResource("Resource_18klj")
+cooldown = 1
 metadata/_custom_type_script = "uid://cfha302j5xcmi"

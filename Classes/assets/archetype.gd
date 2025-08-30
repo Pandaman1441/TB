@@ -14,8 +14,8 @@ signal turn_ended(character)
 
 
 var hp: int 
-var skills: Array[Skill] = []                  
-var actions: Array[Skill] = []  # basic actions like basic attack, move, end turn 
+var skill_states: Array[Skill_Instance] = []                  
+
 var level: int = 1
 var xp = 0
 var xp_total = 0
@@ -25,13 +25,17 @@ var ap: int
 func _ready() -> void:
 	hp = stats.hp.current
 	ap = 0
+	for def in skills_defs:
+		skill_states.append(Skill_Instance.new(def))
 
 func is_alive() -> bool:
 	return hp > 0
 	
-func start_turn() -> void:
+func start_turn(target: Archetype, action) -> void:
 	emit_signal('turn_started', self)
 	ap = 2
+	action.execute(self, target)
+	await get_tree().create_timer(1.0); 'timeout'
 	
 func end_turn() -> void:
 	ap = 0
@@ -63,3 +67,16 @@ func level_up():
 	level += 1
 	xp_requirement = get_required_xp(level + 1)
 	# increase stats based on class here
+	
+	
+# basic actions; basic attack, move, wait
+# classes have their own scaling so override basic attack and maybe some move more spaces
+
+func basic_attack(target: Archetype):
+	pass
+
+func move():
+	pass
+	
+func wait():
+	pass
