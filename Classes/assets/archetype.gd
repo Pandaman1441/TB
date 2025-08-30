@@ -9,30 +9,41 @@ signal turn_ended(character)
 
 @export var stats: StartingStats
 @export var skills_defs: Array[Skill] = []   
+@export var team: int = 0 # 0 = player, 1 = npc
+@export var inititive: int = 0
 
 
-var hp: int
+var hp: int 
 var skills: Array[Skill] = []                  
 var actions: Array[Skill] = []  # basic actions like basic attack, move, end turn 
 var level: int = 1
 var xp = 0
 var xp_total = 0
 var xp_requirement = get_required_xp(level + 1)
+var ap: int
 
 func _ready() -> void:
-	pass
+	hp = stats.hp.current
+	ap = 0
 
 func is_alive() -> bool:
-	return true
+	return hp > 0
 	
 func start_turn() -> void:
-	pass
+	ap = 2
 	
 func end_turn() -> void:
 	pass
 	
+func roll_inititive() -> void:
+	var i = 0
+	i = ceil(stats.ag.current * 0.25) + 75
+	inititive = randi_range(0, i+1)
+	
 func apply_damage(amount: int, source) -> void:
-	pass
+	hp = max(hp - amount, 0)
+	if hp <= 0:
+		emit_signal('died', self)
 	
 func get_required_xp(level):
 	var value = 5 # do math here
