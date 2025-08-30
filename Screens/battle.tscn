@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dclwxggw4286d"]
+[gd_scene load_steps=4 format=3 uid="uid://dclwxggw4286d"]
 
 [ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
+[ext_resource type="Script" uid="uid://3j7gc7v7mu78" path="res://Screens/grid.gd" id="2_i4bo0"]
+
+[sub_resource type="TileSet" id="TileSet_owjfn"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_w7k78")
@@ -18,5 +21,10 @@ offset_bottom = 378.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_owjfn")
+format = 2
+script = ExtResource("2_i4bo0")
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
