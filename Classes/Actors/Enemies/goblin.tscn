@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://dx02jry4qf6y7"]
+
+[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Assets/archetype.tscn" id="1_q4x8d"]
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Assets/stat.gd" id="2_pw6xj"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Assets/statF.gd" id="3_57noc"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Stats/starting_stats.gd" id="4_2v4c1"]
+
+[sub_resource type="GDScript" id="GDScript_7o8xw"]
+script/source = "extends Archetype
+
+
+class_name Goblin
+# these are for class specific methods or overrides
+# most of the functionality should be from the base archetype file
+
+
+
+func _ready() -> void:
+	pass
+
+func is_alive() -> bool:
+	return true
+	
+func start_turn() -> void:
+	pass
+	
+func end_turn() -> void:
+	pass
+	
+func apply_damage(amount: int) -> void:
+	pass
+"
+
+[sub_resource type="Resource" id="Resource_2n22v"]
+script = ExtResource("2_pw6xj")
+cap = 75
+current = 75
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_n2smb"]
+script = ExtResource("2_pw6xj")
+cap = 10
+current = 10
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_oo8sy"]
+script = ExtResource("2_pw6xj")
+cap = 0
+current = 0
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_uget0"]
+script = ExtResource("3_57noc")
+cap = 1.5
+current = 1.5
+metadata/_custom_type_script = "uid://cfsam6xb235qy"
+
+[sub_resource type="Resource" id="Resource_vn1yr"]
+script = ExtResource("2_pw6xj")
+cap = 100
+current = 100
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_0ssgb"]
+script = ExtResource("2_pw6xj")
+cap = 0
+current = 0
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_0ab6w"]
+script = ExtResource("2_pw6xj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_28xj4"]
+script = ExtResource("2_pw6xj")
+cap = 8
+current = 8
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_hrhnf"]
+script = ExtResource("2_pw6xj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_6raci"]
+script = ExtResource("2_pw6xj")
+cap = 50
+current = 50
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_cu5lp"]
+script = ExtResource("2_pw6xj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_jxa6p"]
+script = ExtResource("4_2v4c1")
+class_type = "Goblin "
+hp = SubResource("Resource_vn1yr")
+pp = SubResource("Resource_28xj4")
+mp = SubResource("Resource_0ssgb")
+ag = SubResource("Resource_n2smb")
+wp = SubResource("Resource_cu5lp")
+pr = SubResource("Resource_hrhnf")
+mr = SubResource("Resource_0ab6w")
+resource = SubResource("Resource_6raci")
+accuracy = SubResource("Resource_2n22v")
+crit_chance = SubResource("Resource_oo8sy")
+crit_dmg = SubResource("Resource_uget0")
+metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
+
+[node name="goblin" instance=ExtResource("1_q4x8d")]
+script = SubResource("GDScript_7o8xw")
+stats = SubResource("Resource_jxa6p")
+team = 1

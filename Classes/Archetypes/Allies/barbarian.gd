@@ -17,5 +17,5 @@ func start_turn() -> void:
 func end_turn() -> void:
 	pass
 	
-func apply_damage(amount: int, source) -> void:
+func apply_damage(amount: int) -> void:
 	pass

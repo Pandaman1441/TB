@@ -8,6 +8,3 @@ class_name Deal_Damage
 @export var radius: int
 @export var target_type: String
 @export var position: Vector2
-
-func execute(user, target) -> void:
-	user

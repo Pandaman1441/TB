@@ -25,3 +25,9 @@ func play_turn():
 	
 func get_battlers():
 	return
+
+func get_party():
+	return
+	
+func get_enemies():
+	return

@@ -3,7 +3,7 @@ extends Node2D
 class_name Archetype
 
 signal died(character)
-signal took_damage(character, amount, source)
+signal took_damage(character, amount)
 signal turn_started(character)
 signal turn_ended(character)
 
@@ -30,17 +30,20 @@ func is_alive() -> bool:
 	return hp > 0
 	
 func start_turn() -> void:
+	emit_signal('turn_started', self)
 	ap = 2
 	
 func end_turn() -> void:
-	pass
+	ap = 0
+	emit_signal('turn_ended', self)
 	
 func roll_inititive() -> void:
 	var i = 0
 	i = ceil(stats.ag.current * 0.25) + 75
 	inititive = randi_range(0, i+1)
 	
-func apply_damage(amount: int, source) -> void:
+func apply_damage(amount: int) -> void:
+	emit_signal('took_damage', self, amount)
 	hp = max(hp - amount, 0)
 	if hp <= 0:
 		emit_signal('died', self)
