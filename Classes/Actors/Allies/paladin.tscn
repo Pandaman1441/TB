@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://crpshpapk1qrq"]
+
+[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Assets/archetype.tscn" id="1_roxi5"]
+[ext_resource type="Script" uid="uid://dkbh57cbff0ny" path="res://Classes/Archetypes/Allies/paladin.gd" id="2_3bxxj"]
+[ext_resource type="Resource" uid="uid://bdxdgx4u8wur6" path="res://Classes/Base Stats/Allies/paladin.tres" id="3_hlonx"]
+
+[node name="paladin" instance=ExtResource("1_roxi5")]
+script = ExtResource("2_3bxxj")
+stats = ExtResource("3_hlonx")

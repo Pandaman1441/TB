@@ -1,7 +1,7 @@
 extends Archetype
 
 
-class_name Thief
+class_name Sorceress
 # these are for class specific methods or overrides
 # most of the functionality should be from the base archetype file
 

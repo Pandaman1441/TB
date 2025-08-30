@@ -12,7 +12,7 @@ func initialize():
 		battler.raise()
 	active_character = get_child(0)
 	
-func sort_order(a : Battler, b : Battler) -> bool:
+func sort_order(a : Archetype, b : Archetype) -> bool:
 	# compare two character's inititive rolls
 	return a.stats.inititive > b.stats.inititive
 	

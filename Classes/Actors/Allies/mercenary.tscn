@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxqqnatwlack"]
+
+[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Assets/archetype.tscn" id="1_bpkpw"]
+[ext_resource type="Script" uid="uid://bkxandhne31j4" path="res://Classes/Archetypes/Allies/mercenary.gd" id="2_t5w8v"]
+[ext_resource type="Resource" uid="uid://dw40mgry3an3t" path="res://Classes/Base Stats/Allies/mercenary.tres" id="3_4x7ve"]
+
+[node name="mercenary" instance=ExtResource("1_bpkpw")]
+script = ExtResource("2_t5w8v")
+stats = ExtResource("3_4x7ve")

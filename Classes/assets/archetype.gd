@@ -1,4 +1,4 @@
-extends Resource
+extends Node2D
 
 class_name Archetype
 
@@ -9,6 +9,7 @@ signal turn_ended(character)
 
 @export var stats: StartingStats
 @export var skills_defs: Array[Skill] = []   
+
 
 var hp: int
 var skills: Array[Skill] = []                  

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://byluqojvp8dnw"]
+
+[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Assets/archetype.tscn" id="1_ajvn0"]
+[ext_resource type="Script" uid="uid://bjirnini4wsp4" path="res://Classes/Archetypes/Allies/scholar.gd" id="2_0vbtn"]
+[ext_resource type="Resource" uid="uid://cjj7430es3uvo" path="res://Classes/Base Stats/Allies/scholar.tres" id="3_uidjq"]
+
+[node name="scholar" instance=ExtResource("1_ajvn0")]
+script = ExtResource("2_0vbtn")
+stats = ExtResource("3_uidjq")
