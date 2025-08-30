@@ -34,7 +34,8 @@ func is_alive() -> bool:
 func start_turn(target: Archetype, action) -> void:
 	emit_signal('turn_started', self)
 	ap = 2
-	action.execute(self, target)
+	basic_attack(target)
+	#action.execute(self, target)
 	await get_tree().create_timer(1.0); 'timeout'
 	
 func end_turn() -> void:
@@ -73,7 +74,9 @@ func level_up():
 # classes have their own scaling so override basic attack and maybe some move more spaces
 
 func basic_attack(target: Archetype):
-	pass
+	var pct = Calc_Hc.hit_chance(self, target)
+	if Calc_Hc.roll_hit(pct):
+		target.apply_damage(stats.pp.current)
 
 func move():
 	pass
