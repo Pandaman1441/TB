@@ -1,9 +1,0 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpkwjoo4auvh"]
-
-[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Base/archetype.tscn" id="1_b2fcl"]
-[ext_resource type="Script" uid="uid://dv4c18iddwh5r" path="res://Classes/Archetypes/barbarian.gd" id="2_63623"]
-[ext_resource type="Resource" uid="uid://dbki2lbpcbdvy" path="res://Classes/Base Stats/barbarian.tres" id="3_whtrt"]
-
-[node name="barbarian" instance=ExtResource("1_b2fcl")]
-script = ExtResource("2_63623")
-stats = ExtResource("3_whtrt")

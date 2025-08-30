@@ -1,9 +1,0 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl5vdoblrq45h"]
-
-[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Base/archetype.tscn" id="1_2apv0"]
-[ext_resource type="Script" uid="uid://g8ie080mryly" path="res://Classes/Archetypes/monk.gd" id="2_06jpd"]
-[ext_resource type="Resource" uid="uid://d32162kt7u2lw" path="res://Classes/Base Stats/monk.tres" id="3_lvflq"]
-
-[node name="monk" instance=ExtResource("1_2apv0")]
-script = ExtResource("2_06jpd")
-stats = ExtResource("3_lvflq")
