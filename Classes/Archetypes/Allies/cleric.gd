@@ -11,9 +11,9 @@ func _ready() -> void:
 func is_alive() -> bool:
 	return true
 	
-func start_turn() -> void:
+func start_turn(target: Archetype, action) -> void:
 	pass
-	
+		
 func end_turn() -> void:
 	pass
 	

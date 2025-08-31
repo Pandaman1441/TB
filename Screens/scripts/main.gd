@@ -5,7 +5,7 @@ extends Node2D
 var current_scene = null
 
 func _ready():
-	_change_scene("res://Scenes/menu.tscn")
+	_change_scene("res://Screens/menu.tscn")
 
 func _change_scene(path):
 	if current_scene:
@@ -19,13 +19,13 @@ func _change_scene(path):
 func _on_screen_requested(fg):
 	var path = ''
 	if fg == 'battle':
-		path = 'res://Scenes/battle.tscn'
+		path = 'res://Screens/battle.tscn'
 	elif fg == 'shop':
-		path = 'res://Scenes/shop.tscn'
+		path = 'res://Screens/shop.tscn'
 	elif fg == 'party':
-		path = 'res://Scenes/party.tscn'
+		path = 'res://Screens/party.tscn'
 	elif fg == 'menu':
-		path = 'res://Scenes/menu.tscn'
+		path = 'res://Screens/menu.tscn'
 	elif fg == 'quit':
 		get_tree().quit()
 		return
