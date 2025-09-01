@@ -10,6 +10,7 @@ range = 0
 radius = 0
 target_type = ""
 position = Vector2(0, 0)
+uses_hit_check = false
 ap = 0
 metadata/_custom_type_script = "uid://c1rh8pbmlxdsp"
 
@@ -19,5 +20,5 @@ skill_name = "Fireball"
 skill_description = "ball of fire"
 mana_cost = 10
 effect = SubResource("Resource_18klj")
-cooldown = 1
+cooldown = 0
 metadata/_custom_type_script = "uid://cfha302j5xcmi"

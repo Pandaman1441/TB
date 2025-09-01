@@ -8,5 +8,4 @@
 script = ExtResource("2_q7h26")
 stats = ExtResource("3_81i6s")
 skills_defs = null
-team = null
 inititive = null

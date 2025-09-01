@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx02jry4qf6y7"]
+[gd_scene load_steps=19 format=3 uid="uid://dx02jry4qf6y7"]
 
 [ext_resource type="PackedScene" uid="uid://df5ipulimlhxb" path="res://Classes/Base Files/archetype.tscn" id="1_q4x8d"]
 [ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="2_pw6xj"]
 [ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="3_57noc"]
 [ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Stats/starting_stats.gd" id="4_2v4c1"]
+[ext_resource type="Texture2D" uid="uid://ditqrxwb4us0h" path="res://Assets/item_icons/misc/tile019.png" id="5_pw6xj"]
 
 [sub_resource type="GDScript" id="GDScript_7o8xw"]
 script/source = "extends Archetype
@@ -116,4 +117,6 @@ metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
 [node name="goblin" instance=ExtResource("1_q4x8d")]
 script = SubResource("GDScript_7o8xw")
 stats = SubResource("Resource_jxa6p")
-team = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("5_pw6xj")

@@ -3,32 +3,58 @@ extends Node2D
 class_name TurnQueue
 
 var active_character : Archetype
+var battlers : Array[Archetype] = []
+var idx : int
 
-func initialize():
-	active_character = get_child(0)
-	var battlers = get_battlers()
+func initialize() -> void:
+	battlers.clear()
+	get_battlers()
+	
 	for battler in battlers:
+		battler.initialize()
 		battler.roll_inititive()
-	battlers.sort_custom(self, 'sort_order')
-	for battler in battlers:
-		battler.raise()
-	active_character = get_child(0)
+	battlers.sort_custom(sort_order)
+	idx = 0
+	active_character = battlers[idx]
 	
 func sort_order(a : Archetype, b : Archetype) -> bool:
 	# compare two character's inititive rolls
 	return a.inititive > b.inititive
 	
-func play_turn(target : Archetype, action: Action):
-	if active_character.is_alive():
-		await active_character.play_turn(target,action); 'completed'
-	var new_idx : int = (active_character.get_index() + 1) % get_child_count()
-	active_character = get_child(new_idx)
+func play_turn(target : Array[Archetype], action: String):
+	await active_character.play_turn(target,action); 'completed'
+	idx = (idx + 1) % battlers.size()
+	active_character = battlers[idx]
 	
 func get_battlers():
-	return
+	for c in get_children():
+		battlers.append(c)
+	
 
 func get_party():
-	return
+	var t : Array[Archetype] = []
+	for b in battlers:
+		if b.party_member:
+			t.append(b)
+	return t
 	
 func get_enemies():
-	return
+	var t : Array[Archetype] = []
+	for b in battlers:
+		if not b.party_member:
+			t.append(b)
+	return t
+
+func skip_turn():
+	idx = (idx + 1) % battlers.size()
+	active_character = battlers[idx]
+	
+func next_battler():
+	idx = (idx + 1) % battlers.size()
+	return battlers[idx]
+	
+func get_targets():
+	if active_character.party_member:
+		return get_enemies()
+	else:
+		return get_party()

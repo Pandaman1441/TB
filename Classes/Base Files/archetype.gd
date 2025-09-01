@@ -9,7 +9,7 @@ signal turn_ended(character)
 
 @export var stats: StartingStats
 @export var skills_defs: Array[Skill] = []   
-@export var team: int = 0 # 0 = player, 1 = npc
+@export var party_member: bool = false
 @export var inititive: int = 0
 
 
@@ -21,8 +21,10 @@ var xp = 0
 var xp_total = 0
 var xp_requirement = get_required_xp(level + 1)
 var ap: int
+var selected : bool = false
 
-func _ready() -> void:
+
+func initialize() -> void:
 	hp = stats.hp.current
 	ap = 0
 	for def in skills_defs:
@@ -31,10 +33,10 @@ func _ready() -> void:
 func is_alive() -> bool:
 	return hp > 0
 	
-func start_turn(target: Archetype, action) -> void:
+func play_turn(target: Array[Archetype], action) -> void:
 	emit_signal('turn_started', self)
 	ap = 2
-	basic_attack(target)
+	basic_attack(target[0])
 	#action.execute(self, target)
 	await get_tree().create_timer(1.0); 'timeout'
 	

@@ -1,15 +1,75 @@
 extends Node2D
 
 signal screen_requested(name)
+signal battle_ends
+signal victory
+signal gameover
+
+@onready var turn_queue = $TurnQueue
+
+var active : bool
+var active_battler : Archetype
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	turn_queue.initialize()
+	var battlers : Array[Archetype] = turn_queue.battlers
+	
 
+func battle_start():
+	active = true
+	active_battler = get_active_battler()
+	play_turn()
+	
+func battle_end():
+	active = false
+	active_battler = get_active_battler()
+	active_battler.selected = false
+	var player_won : bool = active_battler.party_member
+	if player_won:
+		emit_signal('victory')
+	else:
+		emit_signal('gameover')
+		# enemy wins
+	emit_signal('battle_ends')
+
+func play_turn():
+	active_battler = get_active_battler()
+	while not active_battler.is_alive():
+		turn_queue.skip_turn()
+		active_battler = get_active_battler()
+	active_battler.selected = true
+	var opponents : Array[Archetype] = get_targets()
+	var targets : Array[Archetype] = []
+	if opponents.is_empty():
+		battle_end()
+		return
+	if not active_battler.party_member:
+		for t in opponents:
+			if t.is_alive():
+				targets.append(t)
+	else:
+		for t in opponents:
+			if t.is_alive():
+				targets.append(t)
+	active_battler.selected = false
+	if not targets.is_empty():
+		await turn_queue.play_turn(targets, 'basic attack')
+	if active:
+		play_turn()
+	
+func get_active_battler():
+	return turn_queue.active_character
+	
+func get_targets():
+	if get_active_battler().party_member:
+		return turn_queue.get_enemies()
+	else:
+		return turn_queue.get_party()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 
 
 func _on_return_pressed() -> void:
