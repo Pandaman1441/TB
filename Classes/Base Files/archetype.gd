@@ -11,6 +11,8 @@ signal turn_ended(character)
 @export var skills_defs: Array[Skill] = []   
 @export var party_member: bool = false
 @export var inititive: int = 0
+@onready var animations: AnimatedSprite2D = $AnimatedSprite2D
+@export var c_name: String = ''
 
 
 var hp: int 
@@ -27,18 +29,21 @@ var selected : bool = false
 func initialize() -> void:
 	hp = stats.hp.current
 	ap = 0
+	animations.play('idle')
+	if not party_member:
+		animations.flip_h = true
 	for def in skills_defs:
 		skill_states.append(Skill_Instance.new(def))
 
 func is_alive() -> bool:
 	return hp > 0
 	
-func play_turn(target: Array[Archetype], action) -> void:
+func play_turn(target: Array[Archetype], action):
 	emit_signal('turn_started', self)
 	ap = 2
 	basic_attack(target[0])
 	#action.execute(self, target)
-	await get_tree().create_timer(1.0); 'timeout'
+	await get_tree().create_timer(1.0).timeout
 	
 func end_turn() -> void:
 	ap = 0
@@ -55,7 +60,7 @@ func apply_damage(amount: int) -> void:
 	if hp <= 0:
 		emit_signal('died', self)
 	
-func get_required_xp(level):
+func get_required_xp(next_level: int):
 	var value = 5 # do math here
 	return value
 	
@@ -78,8 +83,12 @@ func level_up():
 func basic_attack(target: Archetype):
 	var pct = Calc_Hc.hit_chance(self, target)
 	if Calc_Hc.roll_hit(pct):
+		animations.position = Vector2(40,0)
+		animations.play('attack')
+		await animations.animation_finished
 		target.apply_damage(stats.pp.current)
-
+	animations.play('idle')
+		
 func move():
 	pass
 	

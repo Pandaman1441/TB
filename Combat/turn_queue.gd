@@ -9,7 +9,6 @@ var idx : int
 func initialize() -> void:
 	battlers.clear()
 	get_battlers()
-	
 	for battler in battlers:
 		battler.initialize()
 		battler.roll_inititive()
@@ -17,12 +16,17 @@ func initialize() -> void:
 	idx = 0
 	active_character = battlers[idx]
 	
+	# print turn order
+	#for battler in  battlers:
+		#var text = '{0}: {1}'.format([battler.c_name, battler.inititive])
+		#print(text)
+		
 func sort_order(a : Archetype, b : Archetype) -> bool:
 	# compare two character's inititive rolls
 	return a.inititive > b.inititive
 	
 func play_turn(target : Array[Archetype], action: String):
-	await active_character.play_turn(target,action); 'completed'
+	await active_character.play_turn(target,action)
 	idx = (idx + 1) % battlers.size()
 	active_character = battlers[idx]
 	

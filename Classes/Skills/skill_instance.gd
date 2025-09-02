@@ -12,6 +12,6 @@ func can_user(user: Archetype) -> bool:
 	return user.stats.resource.current >= def.mana_cost and current_cooldown == 0
 	
 func use(user: Archetype, target: Archetype):
-	user.stats.resource.current - def.mana_cost
+	user.stats.resource.current -= def.mana_cost
 	def.effect.execute(user,target)
 	current_cooldown = def.cooldown

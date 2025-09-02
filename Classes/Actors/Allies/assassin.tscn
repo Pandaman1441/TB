@@ -7,3 +7,7 @@
 [node name="assassin" instance=ExtResource("1_l305p")]
 script = ExtResource("2_vo1hu")
 stats = ExtResource("3_8h5iy")
+party_member = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+frame_progress = 0.0

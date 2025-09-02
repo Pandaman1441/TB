@@ -118,5 +118,9 @@ metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
 script = SubResource("GDScript_7o8xw")
 stats = SubResource("Resource_jxa6p")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
+frame_progress = 0.0
+
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("5_pw6xj")
+flip_h = true

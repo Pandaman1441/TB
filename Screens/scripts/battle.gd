@@ -6,14 +6,17 @@ signal victory
 signal gameover
 
 @onready var turn_queue = $TurnQueue
+@onready var hud = $CanvasLayer/BattleHUD
 
 var active : bool
 var active_battler : Archetype
+var battlers : Array[Archetype]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turn_queue.initialize()
-	var battlers : Array[Archetype] = turn_queue.battlers
+	battlers = turn_queue.battlers
+	battle_start()
 	
 
 func battle_start():
@@ -49,6 +52,7 @@ func play_turn():
 			if t.is_alive():
 				targets.append(t)
 	else:
+		await start_player_turn()
 		for t in opponents:
 			if t.is_alive():
 				targets.append(t)
@@ -56,6 +60,7 @@ func play_turn():
 	if not targets.is_empty():
 		await turn_queue.play_turn(targets, 'basic attack')
 	if active:
+		end_player_turn()
 		play_turn()
 	
 func get_active_battler():
@@ -66,6 +71,16 @@ func get_targets():
 		return turn_queue.get_enemies()
 	else:
 		return turn_queue.get_party()
+		
+func start_player_turn() -> void:
+	hud.bind_char(active_battler)
+	#hud.choose_basic_attack.connect(, ConnectFlags.CONNECT_ONE_SHOT)
+	#hud.choose_move.connect(_on_hud_move, ConnectFlags.CONNECT_ONE_SHOT)
+	#hud.choose_wait.connect(_on_hud_wait, ConnectFlags.CONNECT_ONE_SHOT)
+	#hud.choose_skill.connect(_on_hud_skill.bind(active_battler), ConnectFlags.CONNECT_ONE_SHOT)
+
+func end_player_turn():
+	hud.clear_unit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
