@@ -28,8 +28,8 @@ func bind_char(c : Archetype) -> void:
 	_refresh()
 	
 func clear_unit():
-	active = null
 	_clear_skills()
+	active = null
 	name_label.text = ''
 	mana_label.text = ''
 	hp_label.text = ''

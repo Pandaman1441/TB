@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_18klj"]
 script = ExtResource("1_18klj")
 base_damage = 10
-range = 0
+target_range = 0
 radius = 0
 target_type = ""
 position = Vector2(0, 0)

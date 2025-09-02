@@ -15,20 +15,18 @@ signal turn_ended(character)
 @export var c_name: String = ''
 
 
-var hp: int 
 var skill_states: Array[Skill_Instance] = []                  
 
 var level: int = 1
 var xp = 0
 var xp_total = 0
 var xp_requirement = get_required_xp(level + 1)
-var ap: int
 var selected : bool = false
 
 
 func initialize() -> void:
-	hp = stats.hp.current
-	ap = 0
+	stats.hp.current = stats.hp.cap
+	stats.resource.current = stats.resource.cap
 	animations.play('idle')
 	if not party_member:
 		animations.flip_h = true
@@ -36,17 +34,17 @@ func initialize() -> void:
 		skill_states.append(Skill_Instance.new(def))
 
 func is_alive() -> bool:
-	return hp > 0
+	return stats.hp.current > 0
 	
 func play_turn(target: Array[Archetype], action):
 	emit_signal('turn_started', self)
-	ap = 2
+	#ap = 2
 	basic_attack(target[0])
 	#action.execute(self, target)
 	await get_tree().create_timer(1.0).timeout
 	
 func end_turn() -> void:
-	ap = 0
+	#ap = 0
 	emit_signal('turn_ended', self)
 	
 func roll_inititive() -> void:
@@ -56,8 +54,8 @@ func roll_inititive() -> void:
 	
 func apply_damage(amount: int) -> void:
 	emit_signal('took_damage', self, amount)
-	hp = max(hp - amount, 0)
-	if hp <= 0:
+	stats.hp.current = max(stats.hp.current - amount, 0)
+	if stats.hp.current <= 0:
 		emit_signal('died', self)
 	
 func get_required_xp(next_level: int):
@@ -83,6 +81,8 @@ func level_up():
 func basic_attack(target: Archetype):
 	var pct = Calc_Hc.hit_chance(self, target)
 	if Calc_Hc.roll_hit(pct):
+		var text = '{0} attacks {1} for {2}'.format([c_name, target.c_name, stats.pp.current])
+		print(text)
 		animations.position = Vector2(40,0)
 		animations.play('attack')
 		await animations.animation_finished
