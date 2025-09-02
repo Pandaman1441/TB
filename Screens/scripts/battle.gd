@@ -51,14 +51,13 @@ func play_turn():
 		for t in opponents:
 			if t.is_alive():
 				targets.append(t)
+		if not targets.is_empty():
+			await turn_queue.play_turn(targets, 'basic attack')
 	else:
 		await start_player_turn()
-		for t in opponents:
-			if t.is_alive():
-				targets.append(t)
+		
 	active_battler.selected = false
-	if not targets.is_empty():
-		await turn_queue.play_turn(targets, 'basic attack')
+	
 	if active:
 		end_player_turn()
 		play_turn()
@@ -74,11 +73,27 @@ func get_targets():
 		
 func start_player_turn() -> void:
 	hud.bind_char(active_battler)
-	#hud.choose_basic_attack.connect(, ConnectFlags.CONNECT_ONE_SHOT)
-	#hud.choose_move.connect(_on_hud_move, ConnectFlags.CONNECT_ONE_SHOT)
-	#hud.choose_wait.connect(_on_hud_wait, ConnectFlags.CONNECT_ONE_SHOT)
-	#hud.choose_skill.connect(_on_hud_skill.bind(active_battler), ConnectFlags.CONNECT_ONE_SHOT)
-
+	var args = await hud.select_action          
+	var action: StringName = args[0]
+	var data =  args[1]
+	var opponents : Array[Archetype] = get_targets()
+	var targets : Array[Archetype] = []
+	
+	for t in opponents:    # auto target selects
+			if t.is_alive():
+				targets.append(t)
+				
+	match action:
+		&'basic_attack':
+			await turn_queue.play_turn(targets, 'basic attack')
+		&'move':
+			turn_queue.skip_turn()
+		&'wait':
+			turn_queue.skip_turn()
+		&'skill':
+			turn_queue.skip_turn()
+	
+	
 func end_player_turn():
 	hud.clear_unit()
 

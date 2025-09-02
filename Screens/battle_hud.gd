@@ -3,10 +3,7 @@ extends Control
 
 class_name BattleHUD
 
-signal select_basic_attack
-signal select_move
-signal select_wait
-signal select_skill(idx: int)
+signal select_action(action: String, idx: int)
 
 @onready var name_label : Label = $Panel/Info/CharName
 @onready var hp_label : Label = $Panel/Info/Resources/HP
@@ -19,9 +16,9 @@ signal select_skill(idx: int)
 var active : Archetype = null
 
 func _ready() -> void:
-	attack_btn.pressed.connect(func(): emit_signal('select_basic_attack'))
-	move_btn.pressed.connect(func(): emit_signal('select_move'))
-	wait_btn.pressed.connect(func(): emit_signal('select_wait'))
+	attack_btn.pressed.connect(func(): emit_signal('select_action', &'basic_attack', null))
+	move_btn.pressed.connect(func(): emit_signal('select_action', &'move', null))
+	wait_btn.pressed.connect(func(): emit_signal('select_action', &'wait', null))
 	
 func bind_char(c : Archetype) -> void:
 	active = c
@@ -48,7 +45,7 @@ func _refresh():
 			var b := Button.new()
 			b.text = s.skill_name
 			b.tooltip_text = s.skill_description
-			b.pressed.connect(func(idx:=i): emit_signal('select_skill', idx))
+			b.pressed.connect(func(idx:=i): emit_signal('select_action', &'skill', idx))
 			skills_box.add_child(b)
 
 func _clear_skills():
