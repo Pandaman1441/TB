@@ -13,7 +13,7 @@ class_name Deal_Damage
 func _init() -> void:
 	pass
 
-func execute(user: Archetype, target: Archetype):
+func execute(user: Archetype, target: Archetype) -> void:
 	pass
 
 func get_damage(user: Archetype):

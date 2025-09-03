@@ -29,21 +29,18 @@ position = Vector2(4, 3)
 script = ExtResource("3_dphil")
 metadata/_custom_type_script = "uid://bmbcbxtaedqss"
 
-[node name="goblin" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(921, 259)
-c_name = "goblin1"
-
-[node name="goblin2" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(842, 169)
-c_name = "goblin2"
-
 [node name="artificer" parent="TurnQueue" instance=ExtResource("5_lvpb0")]
 position = Vector2(512, 260)
 c_name = "Artificer"
 
+[node name="goblin" parent="TurnQueue" instance=ExtResource("4_4myx4")]
+position = Vector2(838.2, 201.7)
+
+[node name="goblin2" parent="TurnQueue" instance=ExtResource("4_4myx4")]
+position = Vector2(915.2, 288.6)
+
 [node name="goblin3" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(1000, 342)
-c_name = "goblin3"
+position = Vector2(997.7, 367.8)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -95,6 +92,19 @@ text = "Wait"
 
 [node name="Skills" type="HBoxContainer" parent="CanvasLayer/BattleHUD/Panel/Info"]
 layout_mode = 2
+
+[node name="BattleLog" type="ItemList" parent="CanvasLayer/BattleHUD/Panel"]
+offset_left = -14.0
+offset_top = -608.0
+offset_right = 26.0
+offset_bottom = -568.0
+
+[node name="EnemyInfo" type="VBoxContainer" parent="CanvasLayer/BattleHUD/Panel"]
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 3.0
+offset_right = 1164.0
+offset_bottom = 43.0
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 z_index = -10

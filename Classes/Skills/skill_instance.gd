@@ -8,10 +8,17 @@ var current_cooldown: int = 0
 func _init(d: Skill) -> void:
 	def = d
 	
-func can_user(user: Archetype) -> bool:
+func can_use(user: Archetype) -> bool:
 	return user.stats.resource.current >= def.mana_cost and current_cooldown == 0
 	
-func use(user: Archetype, target: Archetype):
+func execute(user: Archetype, target: Archetype):
+	print('in skill instance')
+	print(target.stats.hp.current)
+	print(user.stats.resource.current)
+	
 	user.stats.resource.current -= def.mana_cost
-	def.effect.execute(user,target)
+	await def.effect.execute(user, target)
 	current_cooldown = def.cooldown
+	print(target.stats.hp.current)
+	print(user.stats.resource.current)
+	

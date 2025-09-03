@@ -8,7 +8,7 @@ signal turn_started(character)
 signal turn_ended(character)
 
 @export var stats: StartingStats
-@export var skills_defs: Array[Skill] = []   
+@export var skills_defs: Array[Skill] = []   # holds skill definitions, don't use to activate skill
 @export var party_member: bool = false
 @export var inititive: int = 0
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
@@ -25,6 +25,7 @@ var selected : bool = false
 
 
 func initialize() -> void:
+	stats = stats.duplicate(true)
 	stats.hp.current = stats.hp.cap
 	stats.resource.current = stats.resource.cap
 	animations.play('idle')
@@ -36,10 +37,22 @@ func initialize() -> void:
 func is_alive() -> bool:
 	return stats.hp.current > 0
 	
-func play_turn(target: Array[Archetype], action):
+func play_turn(target: Array[Archetype], action, data):
 	emit_signal('turn_started', self)
 	#ap = 2
-	basic_attack(target[0])
+	print(action)
+	match action:
+		&"basic attack":
+			basic_attack(target[0])
+		&"move":
+			pass
+		&"wait":
+			pass
+		&"skill":
+			print('in skill archetype')
+			var s : Skill_Instance = skill_states[data]
+			if s.can_use(self):
+				s.execute(self, target[0])
 	#action.execute(self, target)
 	await get_tree().create_timer(1.0).timeout
 	
@@ -54,6 +67,8 @@ func roll_inititive() -> void:
 	
 func apply_damage(amount: int) -> void:
 	emit_signal('took_damage', self, amount)
+	var text = '{0} took {1} dmg'.format([self, amount])
+	print(text)
 	stats.hp.current = max(stats.hp.current - amount, 0)
 	if stats.hp.current <= 0:
 		emit_signal('died', self)

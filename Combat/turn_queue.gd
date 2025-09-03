@@ -25,8 +25,8 @@ func sort_order(a : Archetype, b : Archetype) -> bool:
 	# compare two character's inititive rolls
 	return a.inititive > b.inititive
 	
-func play_turn(target : Array[Archetype], action: String):
-	await active_character.play_turn(target,action)
+func play_turn(target : Array[Archetype], action, data):
+	await active_character.play_turn(target,action, data)
 	idx = (idx + 1) % battlers.size()
 	active_character = battlers[idx]
 	
