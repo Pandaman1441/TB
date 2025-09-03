@@ -1,11 +1,96 @@
-[gd_scene load_steps=7 format=4 uid="uid://dclwxggw4286d"]
+[gd_scene load_steps=22 format=4 uid="uid://dclwxggw4286d"]
 
 [ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://bmbcbxtaedqss" path="res://Combat/turn_queue.gd" id="3_dphil"]
 [ext_resource type="PackedScene" uid="uid://dx02jry4qf6y7" path="res://Classes/Actors/Enemies/goblin.tscn" id="4_4myx4"]
 [ext_resource type="Script" uid="uid://dpd4exhhwbup3" path="res://Screens/battle_hud.gd" id="5_4myx4"]
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="5_djahj"]
 [ext_resource type="PackedScene" uid="uid://d05a82gggsiat" path="res://Classes/Actors/Allies/artificer.tscn" id="5_lvpb0"]
 [ext_resource type="TileSet" uid="uid://cmg8247ji70n1" path="res://Assets/Texture/Extra/battle.tres" id="6_4myx4"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="6_c11b4"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Stats/starting_stats.gd" id="6_wv8or"]
+
+[sub_resource type="Resource" id="Resource_m47lk"]
+script = ExtResource("5_djahj")
+cap = 100
+current = 100
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_541ba"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_a5jxk"]
+script = ExtResource("5_djahj")
+cap = 0
+current = 0
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_qx4ik"]
+script = ExtResource("6_c11b4")
+cap = 1.5
+current = 1.5
+metadata/_custom_type_script = "uid://cfsam6xb235qy"
+
+[sub_resource type="Resource" id="Resource_c11b4"]
+script = ExtResource("5_djahj")
+cap = 50
+current = 50
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_f342s"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_jq1yn"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_p2dog"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_0y5ti"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_40hy6"]
+script = ExtResource("5_djahj")
+cap = 10
+current = 10
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_3bws7"]
+script = ExtResource("5_djahj")
+cap = 5
+current = 5
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_uads4"]
+script = ExtResource("6_wv8or")
+class_type = "Class type"
+hp = SubResource("Resource_c11b4")
+pp = SubResource("Resource_p2dog")
+mp = SubResource("Resource_f342s")
+ag = SubResource("Resource_541ba")
+wp = SubResource("Resource_3bws7")
+pr = SubResource("Resource_0y5ti")
+mr = SubResource("Resource_jq1yn")
+resource = SubResource("Resource_40hy6")
+accuracy = SubResource("Resource_m47lk")
+crit_chance = SubResource("Resource_a5jxk")
+crit_dmg = SubResource("Resource_qx4ik")
+metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_w7k78")
@@ -35,12 +120,16 @@ c_name = "Artificer"
 
 [node name="goblin" parent="TurnQueue" instance=ExtResource("4_4myx4")]
 position = Vector2(838.2, 201.7)
+stats = SubResource("Resource_uads4")
+c_name = "goblin"
 
 [node name="goblin2" parent="TurnQueue" instance=ExtResource("4_4myx4")]
 position = Vector2(915.2, 288.6)
+c_name = "goblin2"
 
 [node name="goblin3" parent="TurnQueue" instance=ExtResource("4_4myx4")]
 position = Vector2(997.7, 367.8)
+c_name = "goblin2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -94,6 +183,7 @@ text = "Wait"
 layout_mode = 2
 
 [node name="BattleLog" type="ItemList" parent="CanvasLayer/BattleHUD/Panel"]
+layout_mode = 0
 offset_left = -14.0
 offset_top = -608.0
 offset_right = 26.0

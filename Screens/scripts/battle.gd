@@ -22,7 +22,6 @@ func _ready() -> void:
 func battle_start():
 	active = true
 	active_battler = get_active_battler()
-	hud.setup(battlers)
 	play_turn()
 	
 func battle_end():
@@ -38,6 +37,7 @@ func battle_end():
 	emit_signal('battle_ends')
 
 func play_turn():
+	hud.setup(battlers)
 	active_battler = get_active_battler()
 	while not active_battler.is_alive():
 		turn_queue.skip_turn()
@@ -48,12 +48,13 @@ func play_turn():
 	if opponents.is_empty():
 		battle_end()
 		return
+	
 	if not active_battler.party_member:    # npc turn
 		for t in opponents:                # probably make a call to the archetype and setup their logic in a method
 			if t.is_alive():
 				targets.append(t)
 		if not targets.is_empty():
-			await turn_queue.play_turn(targets, 'basic attack', null)
+			await turn_queue.play_turn(targets, &"basic attack", null)
 			
 	else:          # player turn
 		await start_player_turn()
@@ -74,8 +75,6 @@ func get_targets():
 		return turn_queue.get_party()
 		
 func start_player_turn() -> void:
-	print('battle.gd player turn')
-	
 	hud.bind_char(active_battler)
 	var args = await hud.select_action          
 	var action: StringName = args[0]
@@ -89,7 +88,7 @@ func start_player_turn() -> void:
 				
 	match action:
 		&"basic_attack":
-			await turn_queue.play_turn(targets, action, data)
+			await turn_queue.play_turn(targets, &"basic attack", null)
 		&"move":
 			turn_queue.skip_turn()
 		&"wait":
@@ -97,7 +96,7 @@ func start_player_turn() -> void:
 		&"skill":
 			var text = '{0} wants to use {1} on {2}'.format([active_battler.c_name, active_battler.skills_defs[data].skill_name, targets[0].c_name])
 			print(text)
-			await turn_queue.play_turn(targets, action, data)
+			await turn_queue.play_turn(targets, &"skill", data)
 	
 	
 func end_player_turn():

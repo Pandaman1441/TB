@@ -40,7 +40,6 @@ func is_alive() -> bool:
 func play_turn(target: Array[Archetype], action, data):
 	emit_signal('turn_started', self)
 	#ap = 2
-	print(action)
 	match action:
 		&"basic attack":
 			basic_attack(target[0])
@@ -49,10 +48,9 @@ func play_turn(target: Array[Archetype], action, data):
 		&"wait":
 			pass
 		&"skill":
-			print('in skill archetype')
 			var s : Skill_Instance = skill_states[data]
 			if s.can_use(self):
-				s.execute(self, target[0])
+				await s.execute(self, target[0])
 	#action.execute(self, target)
 	await get_tree().create_timer(1.0).timeout
 	
@@ -67,7 +65,7 @@ func roll_inititive() -> void:
 	
 func apply_damage(amount: int) -> void:
 	emit_signal('took_damage', self, amount)
-	var text = '{0} took {1} dmg'.format([self, amount])
+	var text = '{0} took {1} dmg'.format([c_name, amount])
 	print(text)
 	stats.hp.current = max(stats.hp.current - amount, 0)
 	if stats.hp.current <= 0:
@@ -96,8 +94,8 @@ func level_up():
 func basic_attack(target: Archetype):
 	var pct = Calc_Hc.hit_chance(self, target)
 	if Calc_Hc.roll_hit(pct):
-		var text = '{0} attacks {1} for {2}'.format([c_name, target.c_name, stats.pp.current])
-		print(text)
+		#var text = '{0} attacks {1} for {2}'.format([c_name, target.c_name, stats.pp.current])
+		#print(text)
 		animations.position = Vector2(40,0)
 		animations.play('attack')
 		await animations.animation_finished

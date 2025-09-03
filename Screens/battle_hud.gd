@@ -37,6 +37,8 @@ func clear_unit():
 	wait_btn.visible = false
 	
 func setup(battlers: Array[Archetype]):
+	for c in foe_info.get_children():
+		c.queue_free()
 	for i in battlers:
 		if not i.party_member:
 			var l = Label.new()
@@ -63,6 +65,7 @@ func _refresh():
 			b.pressed.connect(func(idx:=i): 
 				emit_signal('select_action', &'skill', idx))
 			skills_box.add_child(b)
+			
 
 func _clear_skills():
 	for c in skills_box.get_children():
