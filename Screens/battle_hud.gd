@@ -15,16 +15,30 @@ signal select_action(action: String, idx: int)
 @onready var foe_info : VBoxContainer = $Panel/EnemyInfo
 
 var active : Archetype = null
+var _interactive : bool = false
 
 func _ready() -> void:
 	attack_btn.pressed.connect(func(): emit_signal('select_action', &'basic_attack', null))
 	move_btn.pressed.connect(func(): emit_signal('select_action', &'move', null))
 	wait_btn.pressed.connect(func(): emit_signal('select_action', &'wait', null))
+	_set_enabled(false)
 	
 	
 func bind_char(c : Archetype) -> void:
+	if active == c:
+		refresh()
+		return
+	_disconnect_signals()
 	active = c
-	_refresh()
+	_connect_signals()
+	refresh()
+	
+func set_turn_state(player: bool, c: Archetype):
+	if c and c.party_member:
+		bind_char(c)
+		_set_enabled(true)
+	else:
+		_set_enabled(false)
 	
 func clear_unit():
 	_clear_skills()
@@ -45,18 +59,21 @@ func setup(battlers: Array[Archetype]):
 			l.text = "{0} HP: {1}".format([i.c_name, i.stats.hp.current])
 			foe_info.add_child(l)
 	
-func _refresh():
+func refresh():
 	if active == null:
 		return
 	name_label.text = active.c_name
-	hp_label.text = "HP: %d" % active.stats.hp.current
-	mana_label.text = "Mana: %d" % active.stats.resource.current
+	hp_label.text = "HP: %d / %d" % [active.stats.hp.current, active.stats.hp.cap]
+	mana_label.text = "Mana: %d / %d" % [active.stats.resource.current, active.stats.resource.cap]
 	attack_btn.visible = true
 	move_btn.visible = true
 	wait_btn.visible = true
 	
+	_rebuild_skills()
+	
+func _rebuild_skills():
 	_clear_skills()
-	if 'skills_defs' in active and active.skills_defs:
+	if active and active.skills_defs:
 		for i in active.skills_defs.size():
 			var s: Skill = active.skills_defs[i]
 			var b := Button.new()
@@ -72,4 +89,25 @@ func _clear_skills():
 		c.queue_free()
 	
 func _set_enabled(enabled: bool):
-	pass
+	_interactive = enabled
+	attack_btn.disabled = not enabled
+	move_btn.disabled = not enabled
+	wait_btn.disabled = not enabled
+	for c in skills_box.get_children():
+		c.disabled = not enabled
+	if enabled:
+		$Panel/Info.modulate.a = 1
+	else:
+		$Panel/Info.modulate.a = 0.5
+
+func _connect_signals(): 
+	if active == null:
+		return
+	if active.has_signal('stat_changed'):
+		active.took_damage.connect(refresh, CONNECT_DEFERRED)
+
+func _disconnect_signals():
+	if active == null:
+		return
+	if active.has_signal('stat_changed'):
+		active.took_damage.disconnect(refresh)

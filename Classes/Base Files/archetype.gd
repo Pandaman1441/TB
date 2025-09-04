@@ -33,6 +33,8 @@ func initialize() -> void:
 		animations.flip_h = true
 	for def in skills_defs:
 		skill_states.append(Skill_Instance.new(def))
+	
+
 
 func is_alive() -> bool:
 	return stats.hp.current > 0

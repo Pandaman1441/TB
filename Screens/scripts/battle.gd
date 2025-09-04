@@ -49,20 +49,21 @@ func play_turn():
 		battle_end()
 		return
 	
-	if not active_battler.party_member:    # npc turn
-		for t in opponents:                # probably make a call to the archetype and setup their logic in a method
+	if not active_battler.party_member:            # npc turn
+		hud.set_turn_state(false, active_battler)  # probably make a call to the archetype and setup their logic in a method
+		for t in opponents:                
 			if t.is_alive():
 				targets.append(t)
 		if not targets.is_empty():
 			await turn_queue.play_turn(targets, &"basic attack", null)
 			
 	else:          # player turn
+		hud.set_turn_state(true, active_battler)
 		await start_player_turn()
 		
 	active_battler.selected = false
-	
 	if active:
-		end_player_turn()
+		#end_player_turn()
 		play_turn()
 	
 func get_active_battler():
@@ -75,7 +76,6 @@ func get_targets():
 		return turn_queue.get_party()
 		
 func start_player_turn() -> void:
-	hud.bind_char(active_battler)
 	var args = await hud.select_action          
 	var action: StringName = args[0]
 	var data =  args[1]
