@@ -45,6 +45,7 @@ func play_turn():
 	active_battler.selected = true
 	var opponents : Array[Archetype] = get_targets()
 	var targets : Array[Archetype] = []
+	
 	if opponents.is_empty():
 		battle_end()
 		return

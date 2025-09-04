@@ -14,15 +14,18 @@ func _set_cap(value: int) -> void:
 	value = max(_cap, value)
 	if value == _cap:
 		return
+	_cap = value
+	if _current > _cap:
+		_current = _cap
 	_current = min(_current, _cap)
-	changed.emit()
+	#changed.emit()
 
 func _set_current(value: int) -> void:
 	value = clamp(value, 0, _cap)
 	if value == _current:
 		return
 	_current = value
-	changed.emit()
+	#changed.emit()
 	
 
 func _get_cap() -> int:

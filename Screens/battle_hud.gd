@@ -53,6 +53,7 @@ func clear_unit():
 func setup(battlers: Array[Archetype]):
 	for c in foe_info.get_children():
 		c.queue_free()
+
 	for i in battlers:
 		if not i.party_member:
 			var l = Label.new()
@@ -103,11 +104,11 @@ func _set_enabled(enabled: bool):
 func _connect_signals(): 
 	if active == null:
 		return
-	if active.has_signal('stat_changed'):
+	if active.has_signal('took_damage'):
 		active.took_damage.connect(refresh, CONNECT_DEFERRED)
 
 func _disconnect_signals():
 	if active == null:
 		return
-	if active.has_signal('stat_changed'):
+	if active.has_signal('took_damage') and active.took_damage.is_connected(refresh):
 		active.took_damage.disconnect(refresh)

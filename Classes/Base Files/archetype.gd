@@ -3,7 +3,7 @@ extends Node2D
 class_name Archetype
 
 signal died(character)
-signal took_damage(character, amount)
+signal took_damage()
 signal turn_started(character)
 signal turn_ended(character)
 
@@ -66,7 +66,7 @@ func roll_inititive() -> void:
 	inititive = randi_range(0, i+1)
 	
 func apply_damage(amount: int) -> void:
-	emit_signal('took_damage', self, amount)
+	emit_signal('took_damage')
 	var text = '{0} took {1} dmg'.format([c_name, amount])
 	print(text)
 	stats.hp.current = max(stats.hp.current - amount, 0)

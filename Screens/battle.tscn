@@ -184,10 +184,10 @@ layout_mode = 2
 
 [node name="BattleLog" type="ItemList" parent="CanvasLayer/BattleHUD/Panel"]
 layout_mode = 0
-offset_left = -14.0
-offset_top = -608.0
-offset_right = 26.0
-offset_bottom = -568.0
+offset_left = 676.0
+offset_top = 110.0
+offset_right = 716.0
+offset_bottom = 150.0
 
 [node name="EnemyInfo" type="VBoxContainer" parent="CanvasLayer/BattleHUD/Panel"]
 layout_mode = 0
