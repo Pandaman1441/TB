@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://ddrdtcdtvb8jr"]
+
+[ext_resource type="PackedScene" uid="uid://dl5vdoblrq45h" path="res://Classes/Actors/Allies/monk.tscn" id="1_752pn"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_ivgiv"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_kbpvk"]
+[ext_resource type="Resource" uid="uid://d32162kt7u2lw" path="res://Classes/Base Files/Stats/Allies/monk.tres" id="2_jjxqj"]
+
+[resource]
+script = ExtResource("1_ivgiv")
+display_name = "Jian"
+role_name = "Monk"
+role = ExtResource("1_752pn")
+base_stats = ExtResource("2_jjxqj")
+all_skills = Array[ExtResource("1_kbpvk")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

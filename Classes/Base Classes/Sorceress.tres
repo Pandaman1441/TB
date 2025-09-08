@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://dj8niinvx6hui"]
+
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_kckvi"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_p06qn"]
+[ext_resource type="PackedScene" uid="uid://eb8abv01p3ul" path="res://Classes/Actors/Allies/sorceress.tscn" id="1_rw57w"]
+[ext_resource type="Resource" uid="uid://cysxqox8mtxk8" path="res://Classes/Base Files/Stats/Allies/sorceress.tres" id="2_yb0oy"]
+
+[resource]
+script = ExtResource("1_p06qn")
+display_name = "Lumina"
+role_name = "Sorceress"
+role = ExtResource("1_rw57w")
+base_stats = ExtResource("2_yb0oy")
+all_skills = Array[ExtResource("1_kckvi")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

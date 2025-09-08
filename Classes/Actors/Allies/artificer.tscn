@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://d05a82gggsiat"]
 
 [ext_resource type="PackedScene" uid="uid://df5ipulimlhxb" path="res://Classes/Base Files/archetype.tscn" id="1_umfvf"]
-[ext_resource type="Script" uid="uid://dfbsh8stsaxyw" path="res://Classes/Archetypes/Allies/artificer.gd" id="2_q7h26"]
-[ext_resource type="Resource" uid="uid://ddx3ggd6yf223" path="res://Classes/Stats/Allies/artificer.tres" id="3_81i6s"]
+[ext_resource type="Script" uid="uid://dfbsh8stsaxyw" path="res://Classes/Actors/Actor Scripts/Allies/artificer.gd" id="2_q7h26"]
+[ext_resource type="Resource" uid="uid://ddx3ggd6yf223" path="res://Classes/Base Files/Stats/Allies/artificer.tres" id="3_81i6s"]
 [ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="4_gejp6"]
 [ext_resource type="Texture2D" uid="uid://3dcqiuenp5c6" path="res://Assets/class_icons/R.png" id="4_wpslw"]
 [ext_resource type="Resource" uid="uid://cccigo8h1l118" path="res://Classes/Skills/fireball.tres" id="5_16rjp"]
@@ -13,9 +13,6 @@ script = ExtResource("2_q7h26")
 stats = ExtResource("3_81i6s")
 skills_defs = Array[ExtResource("4_gejp6")]([ExtResource("5_16rjp"), ExtResource("6_b6aox")])
 party_member = true
-
-[node name="AnimatedSprite2D" parent="." index="0"]
-frame_progress = 0.0
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("4_wpslw")

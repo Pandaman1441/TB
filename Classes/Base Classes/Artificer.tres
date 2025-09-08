@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://dy0midcgulsqh"]
+
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_mhtge"]
+[ext_resource type="PackedScene" uid="uid://d05a82gggsiat" path="res://Classes/Actors/Allies/artificer.tscn" id="1_p6ih4"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_wvtvu"]
+[ext_resource type="Resource" uid="uid://ddx3ggd6yf223" path="res://Classes/Base Files/Stats/Allies/artificer.tres" id="2_3dyxp"]
+
+[resource]
+script = ExtResource("1_wvtvu")
+display_name = "Verity"
+role_name = "Artificer"
+role = ExtResource("1_p6ih4")
+base_stats = ExtResource("2_3dyxp")
+all_skills = Array[ExtResource("1_mhtge")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://cysxqox8mtxk8"]
 
-[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Assets/stat.gd" id="1_mlyeo"]
-[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Assets/statF.gd" id="2_h66po"]
-[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Stats/starting_stats.gd" id="3_tdyer"]
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="1_mlyeo"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="2_h66po"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Files/Stats/starting_stats.gd" id="3_tdyer"]
 
 [sub_resource type="Resource" id="Resource_4e1o1"]
 script = ExtResource("1_mlyeo")

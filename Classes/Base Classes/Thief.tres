@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://yb745vcdnv21"]
+
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_g6y5q"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_k8meb"]
+[ext_resource type="PackedScene" uid="uid://2awpd830h5xh" path="res://Classes/Actors/Allies/thief.tscn" id="1_oskpv"]
+[ext_resource type="Resource" uid="uid://c4ypl4tti5387" path="res://Classes/Base Files/Stats/Allies/thief.tres" id="2_s8ajn"]
+
+[resource]
+script = ExtResource("1_k8meb")
+display_name = "Rusty"
+role_name = "Thief"
+role = ExtResource("1_oskpv")
+base_stats = ExtResource("2_s8ajn")
+all_skills = Array[ExtResource("1_g6y5q")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

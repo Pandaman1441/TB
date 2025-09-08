@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://ch38nc5ih8xbo"]
+
+[ext_resource type="PackedScene" uid="uid://crpshpapk1qrq" path="res://Classes/Actors/Allies/paladin.tscn" id="1_m5ghr"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_s66ub"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_uhrlh"]
+[ext_resource type="Resource" uid="uid://bdxdgx4u8wur6" path="res://Classes/Base Files/Stats/Allies/paladin.tres" id="2_jrkmc"]
+
+[resource]
+script = ExtResource("1_s66ub")
+display_name = "Nekai"
+role_name = "Paladin"
+role = ExtResource("1_m5ghr")
+base_stats = ExtResource("2_jrkmc")
+all_skills = Array[ExtResource("1_uhrlh")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

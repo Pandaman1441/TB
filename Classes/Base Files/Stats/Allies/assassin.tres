@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="1_t4dwh"]
 [ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="2_esniq"]
-[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Stats/starting_stats.gd" id="3_8uqvv"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Files/Stats/starting_stats.gd" id="3_8uqvv"]
 
 [sub_resource type="Resource" id="Resource_gxabj"]
 script = ExtResource("1_t4dwh")

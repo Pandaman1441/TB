@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwsj0hitwxlba"]
+[gd_scene load_steps=5 format=3 uid="uid://dwsj0hitwxlba"]
 
 [ext_resource type="Script" uid="uid://bwwbj2fpn3vae" path="res://Screens/scripts/party.gd" id="1_os21g"]
+[ext_resource type="Script" uid="uid://cbbsnauqcos3" path="res://Combat/party_rules.gd" id="2_hb5x5"]
+[ext_resource type="PackedScene" uid="uid://dstg6qg52kp6t" path="res://UI Elements/name_choice.tscn" id="3_vfrkw"]
+
+[sub_resource type="Resource" id="Resource_hb5x5"]
+script = ExtResource("2_hb5x5")
+min_size = 1
+max_size = 5
+allow_duplicates = false
+metadata/_custom_type_script = "uid://cbbsnauqcos3"
 
 [node name="Party" type="Node2D"]
 script = ExtResource("1_os21g")
+rules = SubResource("Resource_hb5x5")
 
 [node name="Return" type="Button" parent="."]
 anchors_preset = 8
@@ -11,12 +21,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 278.0
-offset_right = 777.0
-offset_bottom = 378.0
+offset_left = 1204.0
+offset_top = 18.0
+offset_right = 1404.0
+offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return"
+
+[node name="RosterGrid" type="GridContainer" parent="."]
+offset_left = 627.0
+offset_top = 216.0
+offset_right = 667.0
+offset_bottom = 256.0
+
+[node name="SelectedBox" type="HBoxContainer" parent="."]
+offset_left = 623.0
+offset_top = 677.0
+offset_right = 679.0
+offset_bottom = 717.0
+metadata/_edit_group_ = true
+
+[node name="slot0" type="Button" parent="SelectedBox"]
+layout_mode = 2
+
+[node name="slot1" type="Button" parent="SelectedBox"]
+layout_mode = 2
+
+[node name="slot2" type="Button" parent="SelectedBox"]
+layout_mode = 2
+
+[node name="slot3" type="Button" parent="SelectedBox"]
+layout_mode = 2
+
+[node name="slot4" type="Button" parent="SelectedBox"]
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="."]
+offset_left = 1310.0
+offset_top = 824.0
+offset_right = 1381.0
+offset_bottom = 855.0
+text = "Confirm"
+
+[node name="ConfirmationDialog" parent="." instance=ExtResource("3_vfrkw")]
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

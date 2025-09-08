@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://c0o25radppj3f"]
+
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_mw1s3"]
+[ext_resource type="PackedScene" uid="uid://byluqojvp8dnw" path="res://Classes/Actors/Allies/scholar.tscn" id="1_utqje"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="2_3qyd2"]
+[ext_resource type="Resource" uid="uid://cjj7430es3uvo" path="res://Classes/Base Files/Stats/Allies/scholar.tres" id="2_xp416"]
+
+[resource]
+script = ExtResource("2_3qyd2")
+display_name = "Cipher"
+role_name = "Scholar"
+role = ExtResource("1_utqje")
+base_stats = ExtResource("2_xp416")
+all_skills = Array[ExtResource("1_mw1s3")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

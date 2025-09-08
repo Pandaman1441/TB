@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dq8se0qyeap77"]
 
-[ext_resource type="PackedScene" uid="uid://us1v05t3l5yn" path="res://Classes/Assets/archetype.tscn" id="1_e2cd7"]
-[ext_resource type="Script" uid="uid://bwvwgdxpafu6o" path="res://Classes/Archetypes/Allies/cleric.gd" id="2_vmxge"]
-[ext_resource type="Resource" uid="uid://72rvqr01kj1o" path="res://Classes/Base Stats/Allies/cleric.tres" id="3_64iyx"]
+[ext_resource type="PackedScene" uid="uid://df5ipulimlhxb" path="res://Classes/Base Files/archetype.tscn" id="1_e2cd7"]
+[ext_resource type="Script" uid="uid://bwvwgdxpafu6o" path="res://Classes/Actors/Actor Scripts/Allies/cleric.gd" id="2_vmxge"]
+[ext_resource type="Resource" uid="uid://72rvqr01kj1o" path="res://Classes/Base Files/Stats/Allies/cleric.tres" id="3_64iyx"]
 
 [node name="cleric" instance=ExtResource("1_e2cd7")]
 script = ExtResource("2_vmxge")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://dovpg6yqri27f"]
+
+[ext_resource type="PackedScene" uid="uid://qxqqnatwlack" path="res://Classes/Actors/Allies/mercenary.tscn" id="1_ahpwb"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_muvpu"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_sl0kb"]
+[ext_resource type="Resource" uid="uid://dw40mgry3an3t" path="res://Classes/Base Files/Stats/Allies/mercenary.tres" id="2_gn7qi"]
+
+[resource]
+script = ExtResource("1_sl0kb")
+display_name = "Gallese"
+role_name = "Mercenary"
+role = ExtResource("1_ahpwb")
+base_stats = ExtResource("2_gn7qi")
+all_skills = Array[ExtResource("1_muvpu")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

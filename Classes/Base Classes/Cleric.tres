@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://cujycjlycj3qy"]
+
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_a2nua"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_nb0nq"]
+[ext_resource type="PackedScene" uid="uid://dq8se0qyeap77" path="res://Classes/Actors/Allies/cleric.tscn" id="1_wkihc"]
+[ext_resource type="Resource" uid="uid://72rvqr01kj1o" path="res://Classes/Base Files/Stats/Allies/cleric.tres" id="2_uswjx"]
+
+[resource]
+script = ExtResource("1_a2nua")
+display_name = "Durgan"
+role_name = "Cleric"
+role = ExtResource("1_wkihc")
+base_stats = ExtResource("2_uswjx")
+all_skills = Array[ExtResource("1_nb0nq")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

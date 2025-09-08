@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://cj4vr1ajt557l"]
+
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_37ak4"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_jxr48"]
+[ext_resource type="PackedScene" uid="uid://brnykid55c0im" path="res://Classes/Actors/Allies/ranger.tscn" id="1_tpais"]
+[ext_resource type="Resource" uid="uid://1acnfrfw3qv2" path="res://Classes/Base Files/Stats/Allies/ranger.tres" id="2_csbfn"]
+
+[resource]
+script = ExtResource("1_37ak4")
+display_name = "Silvienne"
+role_name = "Ranger"
+role = ExtResource("1_tpais")
+base_stats = ExtResource("2_csbfn")
+all_skills = Array[ExtResource("1_jxr48")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

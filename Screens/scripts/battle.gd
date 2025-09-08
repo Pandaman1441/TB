@@ -15,6 +15,7 @@ var battlers : Array[Archetype]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turn_queue.initialize()
+	turn_queue.visible = true
 	battlers = turn_queue.battlers
 	battle_start()
 	

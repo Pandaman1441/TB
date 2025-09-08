@@ -1,78 +1,78 @@
-[gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://72rvqr01kj1o"]
+[gd_resource type="Resource" script_class="StartingStats" load_steps=15 format=3 uid="uid://doultewdjlogu"]
 
-[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Assets/stat.gd" id="1_kl5da"]
-[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Stats/starting_stats.gd" id="1_tuvm5"]
-[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Assets/statF.gd" id="2_i4i1w"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Files/Stats/starting_stats.gd" id="1_lcq6l"]
+[ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="1_y6tb8"]
+[ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="2_b2qxw"]
 
 [sub_resource type="Resource" id="Resource_4e1o1"]
-script = ExtResource("1_kl5da")
+script = ExtResource("1_y6tb8")
 cap = 80
 current = 80
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_kc0lp"]
-script = ExtResource("1_kl5da")
-cap = 5
-current = 5
+script = ExtResource("1_y6tb8")
+cap = 11
+current = 11
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_qqwft"]
-script = ExtResource("1_kl5da")
+script = ExtResource("1_y6tb8")
 cap = 0
 current = 0
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_fr3ad"]
-script = ExtResource("2_i4i1w")
-cap = 1.7
-current = 1.7
+script = ExtResource("2_b2qxw")
+cap = 1.5
+current = 1.5
 metadata/_custom_type_script = "uid://cfsam6xb235qy"
 
 [sub_resource type="Resource" id="Resource_nraaf"]
-script = ExtResource("1_kl5da")
-cap = 440
-current = 440
+script = ExtResource("1_y6tb8")
+cap = 380
+current = 380
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
 [sub_resource type="Resource" id="Resource_lc3tg"]
-script = ExtResource("1_kl5da")
-cap = 7
-current = 7
-metadata/_custom_type_script = "uid://blkdsvov2qb3j"
-
-[sub_resource type="Resource" id="Resource_tnx7m"]
-script = ExtResource("1_kl5da")
-cap = 13
-current = 13
-metadata/_custom_type_script = "uid://blkdsvov2qb3j"
-
-[sub_resource type="Resource" id="Resource_13bw7"]
-script = ExtResource("1_kl5da")
-cap = 25
-current = 25
-metadata/_custom_type_script = "uid://blkdsvov2qb3j"
-
-[sub_resource type="Resource" id="Resource_tny3v"]
-script = ExtResource("1_kl5da")
-cap = 13
-current = 13
-metadata/_custom_type_script = "uid://blkdsvov2qb3j"
-
-[sub_resource type="Resource" id="Resource_yv4b7"]
-script = ExtResource("1_kl5da")
-cap = 100
-current = 100
-metadata/_custom_type_script = "uid://blkdsvov2qb3j"
-
-[sub_resource type="Resource" id="Resource_v7kdq"]
-script = ExtResource("1_kl5da")
+script = ExtResource("1_y6tb8")
 cap = 15
 current = 15
 metadata/_custom_type_script = "uid://blkdsvov2qb3j"
 
+[sub_resource type="Resource" id="Resource_tnx7m"]
+script = ExtResource("1_y6tb8")
+cap = 9
+current = 9
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_13bw7"]
+script = ExtResource("1_y6tb8")
+cap = 18
+current = 18
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_tny3v"]
+script = ExtResource("1_y6tb8")
+cap = 9
+current = 9
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_yv4b7"]
+script = ExtResource("1_y6tb8")
+cap = 120
+current = 120
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
+[sub_resource type="Resource" id="Resource_v7kdq"]
+script = ExtResource("1_y6tb8")
+cap = 8
+current = 8
+metadata/_custom_type_script = "uid://blkdsvov2qb3j"
+
 [resource]
-script = ExtResource("1_tuvm5")
-class_type = "Cleric"
+script = ExtResource("1_lcq6l")
+class_type = "Bladeslinger"
 hp = SubResource("Resource_nraaf")
 pp = SubResource("Resource_13bw7")
 mp = SubResource("Resource_lc3tg")

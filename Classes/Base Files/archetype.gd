@@ -21,7 +21,8 @@ var level: int = 1
 var xp = 0
 var xp_total = 0
 var xp_requirement = get_required_xp(level + 1)
-var selected : bool = false
+var selected : bool = false : set = set_selected
+var targeted : bool = false
 
 
 func initialize() -> void:
@@ -34,7 +35,6 @@ func initialize() -> void:
 	for def in skills_defs:
 		skill_states.append(Skill_Instance.new(def))
 	
-
 
 func is_alive() -> bool:
 	return stats.hp.current > 0
@@ -98,10 +98,14 @@ func basic_attack(target: Archetype):
 	if Calc_Hc.roll_hit(pct):
 		#var text = '{0} attacks {1} for {2}'.format([c_name, target.c_name, stats.pp.current])
 		#print(text)
-		animations.position = Vector2(40,0)
+		if party_member:	
+			animations.position = Vector2(72,0)
+		else:
+			animations.position = Vector2(-72,0)
 		animations.play('attack')
 		await animations.animation_finished
 		target.apply_damage(stats.pp.current)
+	animations.position = Vector2(0,0)
 	animations.play('idle')
 		
 func move():
@@ -109,3 +113,9 @@ func move():
 	
 func wait():
 	pass
+
+func set_selected(value : bool):
+	pass
+	# selected animation
+	# make them glow or something
+	

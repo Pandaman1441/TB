@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Class_Def" load_steps=5 format=3 uid="uid://caft4u6sw6oei"]
+
+[ext_resource type="PackedScene" uid="uid://cpkwjoo4auvh" path="res://Classes/Actors/Allies/barbarian.tscn" id="1_413ki"]
+[ext_resource type="Script" uid="uid://dgyg6360roqgv" path="res://Classes/Base Files/class_def.gd" id="1_kmkr5"]
+[ext_resource type="Script" uid="uid://cfha302j5xcmi" path="res://Classes/Skills/skill.gd" id="1_ypggp"]
+[ext_resource type="Resource" uid="uid://dbki2lbpcbdvy" path="res://Classes/Base Files/Stats/Allies/barbarian.tres" id="2_yttjr"]
+
+[resource]
+script = ExtResource("1_kmkr5")
+display_name = "Kragg"
+role_name = "Barbarian"
+role = ExtResource("1_413ki")
+base_stats = ExtResource("2_yttjr")
+all_skills = Array[ExtResource("1_ypggp")]([])
+metadata/_custom_type_script = "uid://dgyg6360roqgv"

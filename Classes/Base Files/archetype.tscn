@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://df5ipulimlhxb"]
 
 [ext_resource type="Script" uid="uid://dicgxs8ljdyxh" path="res://Classes/Base Files/archetype.gd" id="1_nylwg"]
-[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Stats/starting_stats.gd" id="2_762hp"]
+[ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Files/Stats/starting_stats.gd" id="2_762hp"]
 [ext_resource type="Texture2D" uid="uid://bsxkli7khahic" path="res://Assets/item_icons/placeholder.png" id="3_op5mf"]
 [ext_resource type="Texture2D" uid="uid://cs8gi0wc0acem" path="res://Assets/class_icons/knight/hooded knight attack.png" id="4_8iq68"]
 [ext_resource type="Texture2D" uid="uid://vdeef1uv2i1" path="res://Assets/class_icons/knight/hooded knight idle.png" id="4_g4qwq"]
@@ -202,11 +202,12 @@ animations = [{
 [node name="Archetype" type="Node2D"]
 script = ExtResource("1_nylwg")
 stats = SubResource("Resource_op5mf")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_nqt6p")
-animation = &"attack"
+animation = &"idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
