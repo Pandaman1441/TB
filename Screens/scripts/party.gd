@@ -90,7 +90,6 @@ func _update_confirm() -> void:
 
 func _on_confirm_pressed() -> void:
 	game_state.party = _selection.duplicate(true)
-	print(game_state, game_state.get_path())
 
 func _on_return_pressed() -> void:
 	emit_signal("screen_requested", "menu")

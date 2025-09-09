@@ -7,7 +7,10 @@ signal screen_requested(name)
 	
 	
 func _ready() -> void:
-	print(game_state.party.size())
+	pass # Replace with function body.
+
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
