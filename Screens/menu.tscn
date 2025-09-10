@@ -1,67 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://drmih7agn0xtg"]
+[gd_scene load_steps=3 format=3 uid="uid://drmih7agn0xtg"]
 
 [ext_resource type="Script" uid="uid://dph20j5a4cney" path="res://Screens/scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="PackedScene" uid="uid://bsnpbu38i72o5" path="res://UI Elements/formation_grid.tscn" id="2_7ocep"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_1rerr")
 
-[node name="BattleButton" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 278.0
-offset_right = 777.0
-offset_bottom = 378.0
+offset_left = 989.0
+offset_top = 240.0
+offset_right = 1029.0
+offset_bottom = 263.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PartyList" type="VBoxContainer" parent="."]
+offset_left = 991.0
+offset_top = 284.0
+offset_right = 1031.0
+offset_bottom = 415.0
+
+[node name="Slot1" type="Button" parent="PartyList"]
+layout_mode = 2
+
+[node name="Slot2" type="Button" parent="PartyList"]
+layout_mode = 2
+
+[node name="Slot3" type="Button" parent="PartyList"]
+layout_mode = 2
+
+[node name="Slot4" type="Button" parent="PartyList"]
+layout_mode = 2
+
+[node name="Slot5" type="Button" parent="PartyList"]
+layout_mode = 2
+
+[node name="FormationGrid" parent="." instance=ExtResource("2_7ocep")]
+offset_left = 580.0
+offset_top = 433.162
+offset_right = 580.0
+offset_bottom = 433.162
+
+[node name="Confirm" type="Button" parent="."]
+offset_left = 630.0
+offset_top = 620.0
+offset_right = 705.0
+offset_bottom = 655.0
+text = "Confirm"
+
+[node name="Clear" type="Button" parent="."]
+offset_left = 455.0
+offset_top = 620.0
+offset_right = 530.0
+offset_bottom = 655.0
+text = "Clear"
+
+[node name="Nav" type="VBoxContainer" parent="."]
+offset_left = 1150.0
+offset_top = 279.0
+offset_right = 1407.0
+offset_bottom = 645.0
+metadata/_edit_group_ = true
+
+[node name="BattleButton" type="Button" parent="Nav"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Battle"
 
-[node name="ShopButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 390.0
-offset_right = 777.0
-offset_bottom = 490.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ShopButton" type="Button" parent="Nav"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Shop"
 
-[node name="PartyButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 505.0
-offset_right = 777.0
-offset_bottom = 605.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PartyButton" type="Button" parent="Nav"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Party"
 
-[node name="QuitButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 577.0
-offset_top = 615.0
-offset_right = 777.0
-offset_bottom = 715.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitButton" type="Button" parent="Nav"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Quit"
 
-[connection signal="pressed" from="BattleButton" to="." method="_on_battle_button_pressed"]
-[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="PartyButton" to="." method="_on_party_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Nav/BattleButton" to="." method="_on_battle_button_pressed"]
+[connection signal="pressed" from="Nav/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Nav/PartyButton" to="." method="_on_party_button_pressed"]
+[connection signal="pressed" from="Nav/QuitButton" to="." method="_on_quit_button_pressed"]
