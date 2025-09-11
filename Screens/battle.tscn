@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dclwxggw4286d"]
+[gd_scene load_steps=24 format=4 uid="uid://dclwxggw4286d"]
 
 [ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://bmbcbxtaedqss" path="res://Combat/turn_queue.gd" id="3_dphil"]
@@ -91,6 +91,19 @@ accuracy = SubResource("Resource_m47lk")
 crit_chance = SubResource("Resource_a5jxk")
 crit_dmg = SubResource("Resource_qx4ik")
 metadata/_custom_type_script = "uid://cpvnvjmumhe8t"
+
+[sub_resource type="GDScript" id="GDScript_wv8or"]
+script/source = "extends Node2D
+
+
+class_name  Board_Tracker
+
+# layout (dictionary or array of arrays) need to point each cell at a specific place on the screen so we can quickly move a unit to that marker
+# occupancy (array of arrays) this is the logic grid, 3x3 each space holds either null or an archetype 'reference'
+# lookup (dictionary) characters are paired to a cell for quickly getting where a character is, artificer : (A, 0, 2), artificer is at ally side, first row third column
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv8or"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_w7k78")
@@ -215,37 +228,59 @@ tile_map_data = PackedByteArray("AAAHABoAAAACAAoAAAAIABkAAAABAA0AAAAIABoAAAADAAs
 tile_set = ExtResource("6_4myx4")
 metadata/_edit_lock_ = true
 
-[node name="Board" type="Marker2D" parent="."]
+[node name="Board" type="Node2D" parent="."]
+script = SubResource("GDScript_wv8or")
 
-[node name="Allies" type="Marker2D" parent="Board"]
+[node name="Markers" type="Marker2D" parent="Board"]
 
-[node name="A-0-0" type="Marker2D" parent="Board/Allies"]
+[node name="A_0_0" type="Marker2D" parent="Board/Markers"]
 position = Vector2(417, 407)
 
-[node name="A-0-1" type="Marker2D" parent="Board/Allies"]
-position = Vector2(273, 407)
+[node name="Area2D" type="Area2D" parent="Board/Markers/A_0_0"]
 
-[node name="A-0-2" type="Marker2D" parent="Board/Allies"]
-position = Vector2(129, 407)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Markers/A_0_0/Area2D"]
+shape = SubResource("RectangleShape2D_wv8or")
 
-[node name="A-1-0" type="Marker2D" parent="Board/Allies"]
-position = Vector2(480.3, 320.2)
+[node name="A_0_1" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="A-1-1" type="Marker2D" parent="Board/Allies"]
-position = Vector2(348.3, 322.4)
+[node name="A_0_2" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="A-1-2" type="Marker2D" parent="Board/Allies"]
-position = Vector2(202, 330.1)
+[node name="A_1_0" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="A-2-0" type="Marker2D" parent="Board/Allies"]
-position = Vector2(583.7, 248.7)
+[node name="A_1_1" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="A-2-1" type="Marker2D" parent="Board/Allies"]
-position = Vector2(423.1, 243.2)
+[node name="A_1_2" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="A-2-2" type="Marker2D" parent="Board/Allies"]
-position = Vector2(282.3, 242.1)
+[node name="A_2_0" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
 
-[node name="Enemies" type="Marker2D" parent="Board"]
+[node name="A_2_1" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
+
+[node name="A_2_2" type="Marker2D" parent="Board/Markers"]
+position = Vector2(417, 407)
+
+[node name="E_0_0" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_0_1" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_0_2" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_1_0" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_1_1" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_1_2" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_2_0" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_2_1" type="Marker2D" parent="Board/Markers"]
+
+[node name="E_2_2" type="Marker2D" parent="Board/Markers"]
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
