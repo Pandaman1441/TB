@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://b40x8ojfcjdbm"]
+
+[ext_resource type="Script" uid="uid://cvxlor4f1q26n" path="res://Combat/board.gd" id="1_p0ybc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv8or"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_p0ybc")
+
+[node name="Markers" type="Marker2D" parent="."]
+
+[node name="0_0_0" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="Area2D" type="Area2D" parent="Markers/0_0_0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Markers/0_0_0/Area2D"]
+shape = SubResource("RectangleShape2D_wv8or")
+
+[node name="0_0_1" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_0_2" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_1_0" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_1_1" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_1_2" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_2_0" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_2_1" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="0_2_2" type="Marker2D" parent="Markers"]
+position = Vector2(417, 407)
+
+[node name="1_0_0" type="Marker2D" parent="Markers"]
+
+[node name="1_0_1" type="Marker2D" parent="Markers"]
+
+[node name="1_0_2" type="Marker2D" parent="Markers"]
+
+[node name="1_1_0" type="Marker2D" parent="Markers"]
+
+[node name="1_1_1" type="Marker2D" parent="Markers"]
+
+[node name="1_1_2" type="Marker2D" parent="Markers"]
+
+[node name="1_2_0" type="Marker2D" parent="Markers"]
+
+[node name="1_2_1" type="Marker2D" parent="Markers"]
+
+[node name="1_2_2" type="Marker2D" parent="Markers"]

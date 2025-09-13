@@ -8,6 +8,11 @@ class_name Class_Def
 @export var base_stats : StartingStats
 @export var all_skills : Array[Skill]
 
+# base skills
+# unlock rules, level gate, prerequisites
+# posistioning preferences
+# general hints
+
 
 # stat growtzh on lvl
 # {
