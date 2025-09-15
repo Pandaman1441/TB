@@ -27,6 +27,6 @@ static func from_def(def: Class_Def, name : String) -> Character_State:
 	return st
 	
 func calc_stats():
-	for i in empty_stats:
-		empty_stats.
+	#for i in empty_stats:
+		#empty_stats.
 	pass

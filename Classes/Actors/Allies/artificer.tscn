@@ -14,6 +14,14 @@ stats = ExtResource("3_81i6s")
 skills_defs = Array[ExtResource("4_gejp6")]([ExtResource("5_16rjp"), ExtResource("6_b6aox")])
 party_member = true
 
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"attack"
+frame = 16
+frame_progress = 1.0
+
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("4_wpslw")
 flip_h = true
+
+[node name="Area2D" parent="." index="2"]
+visible = false

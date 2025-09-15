@@ -9,4 +9,6 @@ class_name Item
 
 @export var effect : Action
 @export var cooldown : int
-@export var values : StartingStats
+@export var values : Dictionary
+
+# {"stat" : value, "stat" : value}

@@ -36,12 +36,12 @@ func _get_current() -> int:
 
 func add_value(value: int):
 	var perc : float
-	perc = current / cap
+	perc = float(current) / float(cap)
 	cap += value
-	current = cap * perc
+	current = ceil(float(cap) * perc)
 
 func sub_value(value: int):
 	var perc : float
-	perc = current / cap
+	perc = float(current) / float(cap)
 	cap -= value
-	current = cap * perc
+	current = ceil(float(cap) * perc)

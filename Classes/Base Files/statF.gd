@@ -25,9 +25,21 @@ func _set_current(value: int) -> void:
 		return
 	_current = value
 	#changed.emit()
-	
+
 func _get_cap() -> int:
 	return _cap
-	
+
 func _get_current() -> int:
 	return _current
+
+func add_value(value: int):
+	var perc : float
+	perc = float(current) / float(cap)
+	cap += value
+	current = ceil(float(cap) * perc)
+
+func sub_value(value: int):
+	var perc : float
+	perc = float(current) / float(cap)
+	cap -= value
+	current = ceil(float(cap) * perc)
