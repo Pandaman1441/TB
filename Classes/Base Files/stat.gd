@@ -33,3 +33,15 @@ func _get_cap() -> int:
 	
 func _get_current() -> int:
 	return _current
+
+func add_value(value: int):
+	var perc : float
+	perc = current / cap
+	cap += value
+	current = cap * perc
+
+func sub_value(value: int):
+	var perc : float
+	perc = current / cap
+	cap -= value
+	current = cap * perc
