@@ -36,6 +36,12 @@ func _ready() -> void:
 func assign_location(marker : Marker2D, parts : Array[String]):
 	var cell := Vector3i(int(parts[0]),int(parts[1]),int(parts[2]))
 	var text = '{0} : {1}'.format([cell, marker.global_position])
+	var s_cell = '{0}'.format([cell])
+	print(text)
+	var l := Label.new()
+	l.text = String(s_cell)
+	l.global_position = marker.global_position
+	markers_location.add_child(l)
 	layout[cell] = marker.global_position
 	
 func _reset():

@@ -7,12 +7,14 @@ signal gameover
 
 @onready var turn_queue = $TurnQueue
 @onready var hud = $CanvasLayer/BattleHUD
+@onready var grid = $Board
 
 var active : bool
 var active_battler : Archetype
 var battlers : Array[Archetype]
 
 # Called when the node enters the scene tree for the first time.
+# we need to pass the party and their formation from game state, then pass an encounter_def that holds the enemies and their formation
 func _ready() -> void:
 	turn_queue.initialize()
 	turn_queue.visible = true

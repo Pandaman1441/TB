@@ -11,6 +11,7 @@ var roster : Array[Class_Def] = []
 var grid_size : int = 3
 var formation_slots : Array[int] = []
 
+
 const class_defs_dir = 'res://Classes/Base Classes'
 func _ready() -> void:
 	roster.clear()
