@@ -7,4 +7,4 @@
 [node name="mercenary" instance=ExtResource("1_bpkpw")]
 script = ExtResource("2_t5w8v")
 stats = ExtResource("3_4x7ve")
-party_member = true
+party_member = 0

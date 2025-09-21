@@ -38,14 +38,14 @@ func get_battlers():
 func get_party():
 	var t : Array[Archetype] = []
 	for b in battlers:
-		if b.party_member:
+		if b.party_member == 0:
 			t.append(b)
 	return t
 	
 func get_enemies():
 	var t : Array[Archetype] = []
 	for b in battlers:
-		if not b.party_member:
+		if b.party_member == 1:
 			t.append(b)
 	return t
 
@@ -58,7 +58,7 @@ func next_battler():
 	return battlers[idx]
 	
 func get_targets():
-	if active_character.party_member:
+	if active_character.party_member == 0:
 		return get_enemies()
 	else:
 		return get_party()

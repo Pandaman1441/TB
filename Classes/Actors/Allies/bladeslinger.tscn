@@ -7,3 +7,4 @@
 [node name="bladeslinger" instance=ExtResource("1_0tjjv")]
 script = ExtResource("2_kargl")
 stats = ExtResource("3_esg1r")
+party_member = 0

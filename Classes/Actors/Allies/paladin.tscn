@@ -7,3 +7,4 @@
 [node name="paladin" instance=ExtResource("1_roxi5")]
 script = ExtResource("2_3bxxj")
 stats = ExtResource("3_hlonx")
+party_member = 0

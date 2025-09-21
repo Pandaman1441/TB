@@ -16,6 +16,11 @@ var battlers : Array[Archetype]
 # Called when the node enters the scene tree for the first time.
 # we need to pass the party and their formation from game state, then pass an encounter_def that holds the enemies and their formation
 func _ready() -> void:
+	for i in game_state.party.size():
+		var actor = combat.build_actor_from_state(game_state.party[i])
+		turn_queue.add_child(actor)
+		var pos = game_state.pos_for_party_index(i)
+		grid.place_actor(actor.party_member,pos.x,pos.y,actor)
 	turn_queue.initialize()
 	turn_queue.visible = true
 	battlers = turn_queue.battlers
@@ -31,8 +36,8 @@ func battle_end():
 	active = false
 	active_battler = get_active_battler()
 	active_battler.selected = false
-	var player_won : bool = active_battler.party_member
-	if player_won:
+	var player_won : int = active_battler.party_member
+	if player_won == 0:
 		emit_signal('victory')
 	else:
 		emit_signal('gameover')
@@ -53,7 +58,7 @@ func play_turn():
 		battle_end()
 		return
 	
-	if not active_battler.party_member:            # npc turn
+	if active_battler.party_member == 1:            # npc turn
 		hud.set_turn_state(false, active_battler)  # probably make a call to the archetype and setup their logic in a method
 		for t in opponents:                
 			if t.is_alive():
@@ -74,7 +79,7 @@ func get_active_battler():
 	return turn_queue.active_character
 	
 func get_targets():
-	if get_active_battler().party_member:
+	if get_active_battler().party_member == 0:
 		return turn_queue.get_enemies()
 	else:
 		return turn_queue.get_party()

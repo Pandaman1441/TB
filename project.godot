@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Calc_Hc="*res://Combat/calculate_hit_chance.gd"
+combat="*res://Combat/calculate_hit_chance.gd"
 game_state="*res://game_state.gd"
 
 [display]

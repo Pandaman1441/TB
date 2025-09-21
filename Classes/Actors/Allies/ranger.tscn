@@ -7,3 +7,4 @@
 [node name="ranger" instance=ExtResource("1_tfl2i")]
 script = ExtResource("2_y5vdx")
 stats = ExtResource("3_w1u1k")
+party_member = 0

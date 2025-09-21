@@ -33,15 +33,17 @@ func _ready() -> void:
 			var parts := m.name.split("_")
 			assign_location(m, parts)
 			
+	setup(game_state.formation_slots,0)
+	
 func assign_location(marker : Marker2D, parts : Array[String]):
 	var cell := Vector3i(int(parts[0]),int(parts[1]),int(parts[2]))
-	var text = '{0} : {1}'.format([cell, marker.global_position])
-	var s_cell = '{0}'.format([cell])
-	print(text)
-	var l := Label.new()
-	l.text = String(s_cell)
-	l.global_position = marker.global_position
-	markers_location.add_child(l)
+	#var text = '{0} : {1}'.format([cell, marker.global_position])
+	#var s_cell = '{0}'.format([cell])
+	#print(text)
+	#var l := Label.new()
+	#l.text = String(s_cell)
+	#l.global_position = marker.global_position
+	#markers_location.add_child(l)
 	layout[cell] = marker.global_position
 	
 func _reset():
@@ -49,11 +51,17 @@ func _reset():
 	layout.clear()
 	lookup.clear()
 	
-func setup():			# setup one side based on a formation
-	pass
+func setup(formation : Array[int], side : int):			# setup one side based on a formation
+	if side == 0:
+		for i in game_state.party.size():
+			var pos = game_state.pos_for_party_index(i)
+			var actor := combat.build_actor_from_state(game_state.party[i])
+			place_actor(side,pos.x,pos.y, actor)
 	
-func place_actor():		# place a single character on the board
-	pass
+func place_actor(side:int, row:int, col:int, actor:Archetype):		# place a single character on the board
+	occupancy[side][row][col] = actor
+	lookup[actor] = Vector3i(side,row,col)
+	actor.global_position = layout[Vector3i(side,row,col)]
 	
 func move_actor():		# change lookup table and occupancy
 	pass

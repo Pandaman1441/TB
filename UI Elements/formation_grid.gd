@@ -32,7 +32,11 @@ func _build_cells() -> void:
 			btn.focus_mode = Control.FOCUS_NONE
 			btn.custom_minimum_size = cell_size
 			btn.size = cell_size
-			btn.position = Vector2(c * step.x, r * step.y)
+			var vr = (rows - 1) - r
+			var vc = (cols - 1) - c
+			var x = vc * step.x
+			var y = vr * step.y
+			btn.position = Vector2(y,x)
 			btn.text = ""     # we’ll set names from outside
 			add_child(btn)
 			_buttons.append(btn)

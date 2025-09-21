@@ -34,7 +34,7 @@ func bind_char(c : Archetype) -> void:
 	refresh()
 	
 func set_turn_state(player: bool, c: Archetype):
-	if c and c.party_member:
+	if c and c.party_member == 0:
 		bind_char(c)
 		_set_enabled(true)
 	else:
@@ -55,7 +55,7 @@ func setup(battlers: Array[Archetype]):
 		c.queue_free()
 
 	for i in battlers:
-		if not i.party_member:
+		if i.party_member == 1:
 			var l = Label.new()
 			l.text = "{0} HP: {1}".format([i.c_name, i.stats.hp.current])
 			foe_info.add_child(l)

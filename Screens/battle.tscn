@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=4 uid="uid://dclwxggw4286d"]
+[gd_scene load_steps=22 format=4 uid="uid://dclwxggw4286d"]
 
 [ext_resource type="Script" uid="uid://djne75hraxpj1" path="res://Screens/scripts/battle.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://bmbcbxtaedqss" path="res://Combat/turn_queue.gd" id="3_dphil"]
 [ext_resource type="PackedScene" uid="uid://dx02jry4qf6y7" path="res://Classes/Actors/Enemies/goblin.tscn" id="4_4myx4"]
 [ext_resource type="Script" uid="uid://dpd4exhhwbup3" path="res://Screens/battle_hud.gd" id="5_4myx4"]
 [ext_resource type="Script" uid="uid://blkdsvov2qb3j" path="res://Classes/Base Files/stat.gd" id="5_djahj"]
-[ext_resource type="PackedScene" uid="uid://d05a82gggsiat" path="res://Classes/Actors/Allies/artificer.tscn" id="5_lvpb0"]
 [ext_resource type="TileSet" uid="uid://cmg8247ji70n1" path="res://Assets/Texture/Extra/battle.tres" id="6_4myx4"]
 [ext_resource type="Script" uid="uid://cfsam6xb235qy" path="res://Classes/Base Files/statF.gd" id="6_c11b4"]
 [ext_resource type="Script" uid="uid://cpvnvjmumhe8t" path="res://Classes/Base Files/Stats/starting_stats.gd" id="6_wv8or"]
@@ -111,31 +110,25 @@ grow_vertical = 2
 text = "Return"
 
 [node name="TurnQueue" type="Node2D" parent="."]
-visible = false
 position = Vector2(4, 3)
 script = ExtResource("3_dphil")
 metadata/_custom_type_script = "uid://bmbcbxtaedqss"
 
-[node name="artificer" parent="TurnQueue" instance=ExtResource("5_lvpb0")]
-position = Vector2(512, 260)
-c_name = "Artificer"
-
 [node name="goblin" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(838.2, 201.7)
+position = Vector2(845.279, 237.692)
 stats = SubResource("Resource_uads4")
 c_name = "goblin"
+metadata/_edit_group_ = true
 
 [node name="goblin2" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(915.2, 288.6)
+position = Vector2(925.279, 331.329)
 c_name = "goblin2"
+metadata/_edit_group_ = true
 
 [node name="goblin3" parent="TurnQueue" instance=ExtResource("4_4myx4")]
-position = Vector2(999, 362)
+position = Vector2(1019.82, 412.238)
 c_name = "goblin2"
-
-[node name="artificer2" parent="TurnQueue" instance=ExtResource("5_lvpb0")]
-position = Vector2(432, 345)
-c_name = "Artificer"
+metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

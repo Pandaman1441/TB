@@ -22,5 +22,5 @@ func get_damage(user: Archetype):
 func get_preview(user: Archetype, target: Archetype):
 	var out: Dictionary
 	if uses_hit_check:
-		out['hit_chance'] = Calc_Hc.hit_chance(user,target)
+		out['hit_chance'] = combat.hit_chance(user,target)
 	return out

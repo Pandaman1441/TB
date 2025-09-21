@@ -19,3 +19,9 @@ func roll_hit(pct: int) -> bool:
 	var roll = randi_range(1, 100)
 	return roll <= pct
 	# true is a success
+
+func build_actor_from_state(st: Character_State) -> Archetype:
+	var def : Class_Def = load(st.base_def)
+	var actor : Archetype = def.role.instantiate()
+	actor.setup(st.custom_name,st.current_stats, st.equiped_skills)
+	return actor

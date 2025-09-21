@@ -12,7 +12,7 @@
 script = ExtResource("2_q7h26")
 stats = ExtResource("3_81i6s")
 skills_defs = Array[ExtResource("4_gejp6")]([ExtResource("5_16rjp"), ExtResource("6_b6aox")])
-party_member = true
+party_member = 0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"attack"

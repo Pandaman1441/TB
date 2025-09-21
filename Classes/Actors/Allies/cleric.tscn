@@ -7,3 +7,4 @@
 [node name="cleric" instance=ExtResource("1_e2cd7")]
 script = ExtResource("2_vmxge")
 stats = ExtResource("3_64iyx")
+party_member = 0

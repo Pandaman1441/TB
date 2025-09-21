@@ -1,0 +1,18 @@
+
+
+map node ; 	holds an id 
+			type of encounter
+			row and col
+			
+			
+map graph ; size/maps
+			array of map nodes
+			start and boss nodes
+			current node
+			visited nodes
+			reachable nodes
+			
+/\ files /\
+generation: define average branches, for each row place 2-5 nodes, last row is boss row, 
+			from each node in row r, connect to 1-3 nodes in row r+1, every node has at least one incoming and one outgoing edge
+			need to define a generation seed and we can base encounter generation on that seed

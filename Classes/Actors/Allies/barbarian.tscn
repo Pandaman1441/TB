@@ -7,3 +7,4 @@
 [node name="barbarian" instance=ExtResource("1_b2fcl")]
 script = ExtResource("2_63623")
 stats = ExtResource("3_whtrt")
+party_member = 0

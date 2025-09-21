@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_3bwpl")
-item_name = "item"
+item_name = "Acc"
 item_description = ""
 cooldown = 0
 values = {}
