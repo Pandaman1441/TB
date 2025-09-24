@@ -13,9 +13,14 @@ signal turn_ended(character)
 @export var inititive: int = 0
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @export var c_name: String = ''
+@export var passive_skill_defs: Array[Skill]
+@export var item_defs: Array[Item]
 
 
 var skill_states: Array[Skill_Instance] = []                  
+var passive_skill_states: Array[Skill_Instance] = []                  
+var item_states: Array[Item_Instance] = []                  
+
 
 #var level: int = 1
 #var xp = 0
